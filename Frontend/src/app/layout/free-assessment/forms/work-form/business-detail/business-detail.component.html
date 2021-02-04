@@ -1,0 +1,86 @@
+<div [formGroup]="workImmigrationForm">
+	<fieldset>
+		<legend>Business Details</legend>
+		<p  class="field-description inline-block">For the business you most recently owned, please provide the following information</p>
+		<div class="row">
+			<div class="col-6">
+				<div class="form-group">
+					<label><span>Ownership Percentage</span>
+					</label>
+					<div >
+						<input type="text" formControlName="experienceBusinessInfoQwnershipPercentage" class="form-control" value="" label="Ownership Percentage" placeholder="" name="">
+					</div>
+				</div>
+			</div>
+			<div class="col-6">
+				<div class="form-group">
+					<label><span>Number of employees</span>
+					</label>
+					<div>
+						<select class="form-control" formControlName="experienceBusinessInfoEmployees">
+							<option value="">Select</option>
+							<option value="2 or more">2 or more full-time employees</option>
+							<option value="less than 2">Less than 2 full-time employees</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="col-6">
+				<div class="form-group">
+					<label><span>Choose currency</span>
+					</label>
+					<div>
+						<select class="form-control" formControlName="experienceBusinessInfoCurrency">
+							<option value="">Select</option>
+							<option value="CAD">CAD</option>
+							<option value="USD">USD</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="col-6">
+				<div class="form-group">
+					<label><span>Annual Sales</span>
+					</label>
+					<div>
+						<input type="text" formControlName="experienceBusinessInfoAnnualSales" class="form-control" value="" label="Annual Sales" placeholder="" name="">
+					</div>
+				</div>
+			</div>
+			<div class="col-6">
+				<div class="form-group">
+					<label><span>Annual Net Profit after Tax</span>
+					</label>
+					<div>
+						<input type="text" formControlName="experienceBusinessInfoAnnualProfitAfterTax" class="form-control" value="" label="Annual Net Profit after Tax" placeholder="" name="">
+					</div>
+				</div>
+			</div>
+			<div class="col-6">
+				<div class="form-group">
+					<label><span>Net Worth of Company</span>
+					</label>
+					<div>
+						<input type="text" formControlName="experienceBusinessInfoCompanyNetWorth" class="form-control" value="" label="Net Worth of Company" placeholder="" name="">
+					</div>
+				</div>
+			</div>
+			<div class="col-6">
+				<div class="form-group">
+					<label><span>Did you own and manage any other business(es) during the last five years?</span>
+                    </label>
+                    <div>
+                        <div class="btn-group btn-group-toggle" ngbRadioGroup >
+                            <label ngbButtonLabel class="btn btn-margin-right">
+                              <input ngbButton type="radio" formControlName="experienceBusinessInfoManageOtherBusiness" value="true">Yes
+                            </label>
+                            <label ngbButtonLabel class="btn btn-margin-right">
+                              <input ngbButton type="radio" formControlName="experienceBusinessInfoManageOtherBusiness" value="false">No
+                            </label>
+                        </div>
+                    </div>
+				</div>
+			</div>
+		</div>
+	</fieldset>
+</div>

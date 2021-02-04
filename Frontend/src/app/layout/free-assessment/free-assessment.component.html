@@ -1,0 +1,7 @@
+<section>
+    <div class="container" style="margin-top: 100px;">
+        <app-select-assessment-forms (valueChange)='updateRenderFormName($event)'></app-select-assessment-forms>
+        <h3 class="sa-other-into mt-4">Complete your evaluation below</h3>
+        <app-dynamic-form-loader [selectedKey]="renderFormName"></app-dynamic-form-loader>
+    </div>
+</section>

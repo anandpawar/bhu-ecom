@@ -1,0 +1,650 @@
+<div class="sa-immigration-form mt-2">
+    <form [formGroup]="generalImmigrationForm" (ngSubmit)="onSubmit()">
+        <fieldset>
+            <div class="mt-2 mb-4">
+                <fieldset>
+                    <legend>Personal Information:</legend>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="form-group field field-string">
+                                <label><span>Age</span></label>
+                                <div id="input_root_profile_age">
+                                    <div></div>
+                                    <select class="form-control" name="profileAge" formControlName="profileAge">
+                                        <option value="">Select your age</option>
+                                        <option value="under18">Under 18</option>
+                                        <option value="18">18</option>
+                                        <option value="19">19</option>
+                                        <option value="20">20</option>
+                                        <option value="21">21</option>
+                                        <option value="22">22</option>
+                                        <option value="23">23</option>
+                                        <option value="24">24</option>
+                                        <option value="25">25</option>
+                                        <option value="26">26</option>
+                                        <option value="27">27</option>
+                                        <option value="28">28</option>
+                                        <option value="29">29</option>
+                                        <option value="30">30</option>
+                                        <option value="31">31</option>
+                                        <option value="32">32</option>
+                                        <option value="33">33</option>
+                                        <option value="34">34</option>
+                                        <option value="35">35</option>
+                                        <option value="36">36</option>
+                                        <option value="37">37</option>
+                                        <option value="38">38</option>
+                                        <option value="39">39</option>
+                                        <option value="40">40</option>
+                                        <option value="41">41</option>
+                                        <option value="42">42</option>
+                                        <option value="43">43</option>
+                                        <option value="44">44</option>
+                                        <option value="45">45</option>
+                                        <option value="46">46</option>
+                                        <option value="47">47</option>
+                                        <option value="48">48</option>
+                                        <option value="49">49</option>
+                                        <option value="50">50</option>
+                                        <option value="51">51</option>
+                                        <option value="52">52</option>
+                                        <option value="53">53</option>
+                                        <option value="54">54</option>
+                                        <option value="55">55</option>
+                                        <option value="56">56</option>
+                                        <option value="57">57</option>
+                                        <option value="58">58</option>
+                                        <option value="59">59</option>
+                                        <option value="equalAndOver60">60 or over</option>
+                                    </select>
+                                    <div></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group field field-string">
+                                <label><span>Country of Residence*</span></label>
+                                <div id="input_root_profile_age">
+                                    <div></div>
+                                    <select class="form-control" name="profileNationality" formControlName="profileNationality" 
+                                    [ngClass]="{ 'border-danger': f.profileNationality.touched && f.profileNationality.invalid }">
+                                        <option value="">Select the country where you are currently located</option>
+                                        <option value="{{ country.key }}" *ngFor="let country of countries">{{ country.label }}</option>
+                                    </select>
+                                    <div></div>
+                                    <div *ngIf="f.profileNationality.errors">
+                                        <span *ngIf="f.profileNationality.touched && f.profileNationality.errors.required" class="text-danger">Required</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group field field-string">
+                                <label><span>Preferred Destination in Canada</span></label>
+                                <div id="input_root_profile_age">
+                                    <div></div>
+                                    <select class="form-control" name="profileResidenceCountry" formControlName="profileResidenceCountry">
+                                        <option value="no_preference">No preference</option>
+                                        <option value="not_sure">I am not sure</option>
+                                        <option value="Alberta">Alberta</option>
+                                        <option value="British Columbia">British Columbia</option>
+                                        <option value="Manitoba">Manitoba</option>
+                                        <option value="New Brunswick">New Brunswick</option>
+                                        <option value="Newfoundland and Labrador">Newfoundland and Labrador</option>
+                                        <option value="Northwest Territories">Northwest Territories</option>
+                                        <option value="Nova Scotia">Nova Scotia</option>
+                                        <option value="Nunavut">Nunavut</option>
+                                        <option value="Ontario">Ontario</option>
+                                        <option value="Prince Edward Island">Prince Edward Island</option>
+                                        <option value="Quebec">Quebec</option>
+                                        <option value="Saskatchewan">Saskatchewan</option>
+                                        <option value="Yukon">Yukon</option>
+                                    </select>
+                                    <div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row mt-2">
+                        <div class="col-12">
+                            <label><span>Marital Status</span></label>
+                            <i data-toggle="collapse" data-target="" class="fa fa-question-circle"></i>
+                        </div>
+                        <div class="col-12">
+                            <div>
+                                <div class="btn-group btn-group-toggle" ngbRadioGroup >
+                                    <label ngbButtonLabel class="btn btn-margin-right">
+                                      <input ngbButton type="radio" formControlName="profileMaritalStatus" value="single">Single
+                                    </label>
+                                    <label ngbButtonLabel class="btn btn-margin-right">
+                                      <input ngbButton type="radio" formControlName="profileMaritalStatus" value="married">Married
+                                    </label>
+                                    <label ngbButtonLabel class="btn btn-margin-right">
+                                      <input ngbButton type="radio" formControlName="profileMaritalStatus" value="common-law">Common-Law Partner
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col-sm-12 col-md-4 col-lg-4">
+                            <label><span>Do you have any children under the age of 22?</span></label>
+                            <div>
+                                <div class="btn-group btn-group-toggle" ngbRadioGroup >
+                                    <label ngbButtonLabel class="btn btn-margin-right">
+                                      <input ngbButton type="radio" formControlName="profileHasChildren" value="true">Yes
+                                    </label>
+                                    <label ngbButtonLabel class="btn btn-margin-right">
+                                      <input ngbButton type="radio" formControlName="profileHasChildren" value="false">No
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-4 col-lg-4" *ngIf="f.profileHasChildren.value == 'true'">
+                            <label><span>How many children do you have below age 13?</span>
+                            </label>
+                            <div>
+                                <div class="btn-group btn-group-toggle" ngbRadioGroup >
+                                    <label ngbButtonLabel class="btn btn-margin-right">
+                                        <input ngbButton type="radio" formControlName="childrenLessThanTwelve" value="0">None
+                                    </label>
+                                    <label ngbButtonLabel class="btn btn-margin-right">
+                                        <input ngbButton type="radio" formControlName="childrenLessThanTwelve" value="1">1
+                                    </label>
+                                    <label ngbButtonLabel class="btn btn-margin-right">
+                                        <input ngbButton type="radio" formControlName="childrenLessThanTwelve" value="2">2
+                                        </label>
+                                        <label ngbButtonLabel class="btn btn-margin-right">
+                                        <input ngbButton type="radio" formControlName="childrenLessThanTwelve" value="3">3
+                                        </label>
+                                        <label ngbButtonLabel class="btn btn-margin-right">
+                                        <input ngbButton type="radio" formControlName="childrenLessThanTwelve" value="4">4 or more
+                                        </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-4 col-lg-4" *ngIf="f.profileHasChildren.value == 'true'">
+                            <label><span>How many children do you have aged 13 to 21?                              </span>
+                            </label>
+                            <div>
+                                <div class="btn-group btn-group-toggle" ngbRadioGroup >
+                                    <label ngbButtonLabel class="btn btn-margin-right">
+                                        <input ngbButton type="radio" formControlName="childrenGreaterThanTwelve" value="0">None
+                                    </label>
+                                    <label ngbButtonLabel class="btn btn-margin-right">
+                                        <input ngbButton type="radio" formControlName="childrenGreaterThanTwelve" value="1">1
+                                    </label>
+                                    <label ngbButtonLabel class="btn btn-margin-right">
+                                        <input ngbButton type="radio" formControlName="childrenGreaterThanTwelve" value="2">2
+                                        </label>
+                                        <label ngbButtonLabel class="btn btn-margin-right">
+                                        <input ngbButton type="radio" formControlName="childrenGreaterThanTwelve" value="3">3
+                                        </label>
+                                        <label ngbButtonLabel class="btn btn-margin-right">
+                                        <input ngbButton type="radio" formControlName="childrenGreaterThanTwelve" value="4">4 or more
+                                        </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+            <div class="mt-2 mb-4">
+                <fieldset>
+                    <legend>Your Language Skills:</legend>
+                    <div class="row">
+                        <div class="col-12 mb-4">Please describe your proficiency in English and/or French under each of the four skills listed below.</div>
+                        <div class="col-12" formGroupName="languageEnglish">
+                            <div class="row">
+                                <div class="col-2" style="display: flex; justify-content: center; align-items: center;">
+                                    <label><span>English</span></label>
+                                </div>
+                                <div class="col-2">
+                                    <div class="form-group field field-string">
+                                        <label><span>Writing</span></label>
+                                        <div id="input_root_profile_age">
+                                            <div></div>
+                                            <select class="form-control" name="languageEnglish.writing" formControlName="writing">
+                                                <option value="">Select</option>
+                                                <option value="{{ proficiency.key }}" *ngFor="let proficiency of proficiencies">{{ proficiency.label }}</option>
+                                            </select>
+                                            <div></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="form-group field field-string">
+                                        <label><span>Reading</span></label>
+                                        <div id="input_root_profile_age">
+                                            <div></div>
+                                            <select class="form-control" name="languageEnglish.reading" formControlName="reading">
+                                                <option value="">Select</option>
+                                                <option value="{{ proficiency.key }}" *ngFor="let proficiency of proficiencies">{{ proficiency.label }}</option>
+                                            </select>
+                                            <div></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="form-group field field-string">
+                                        <label><span>Speaking</span></label>
+                                        <div id="input_root_profile_age">
+                                            <div></div>
+                                            <select class="form-control" name="languageEnglish.speaking" formControlName="speaking">
+                                                <option value="">Select</option>
+                                                <option value="{{ proficiency.key }}" *ngFor="let proficiency of proficiencies">{{ proficiency.label }}</option>
+                                            </select>
+                                            <div></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="form-group field field-string">
+                                        <label><span>Listening</span></label>
+                                        <div id="input_root_profile_age">
+                                            <div></div>
+                                            <select class="form-control" name="languageEnglish.listening" formControlName="listening">
+                                                <option value="">Select</option>
+                                                <option value="{{ proficiency.key }}" *ngFor="let proficiency of proficiencies">{{ proficiency.label }}</option>
+                                            </select>
+                                            <div></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12" formGroupName="languageFrench">
+                            <div class="row">
+                                <div class="col-2" style="display: flex; justify-content: center; align-items: center;">
+                                    <label><span>French</span></label>
+                                </div>
+                                <div class="col-2">
+                                    <div class="form-group field field-string">
+                                        <label><span></span></label>
+                                        <div id="input_root_profile_age">
+                                            <div></div>
+                                            <select class="form-control" name="languageFrench.writing" formControlName="writing">
+                                                <option value="">Select</option>
+                                                <option value="{{ proficiency.key }}" *ngFor="let proficiency of proficiencies">{{ proficiency.label }}</option>
+                                            </select>
+                                            <div></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="form-group field field-string">
+                                        <label><span></span></label>
+                                        <div id="input_root_profile_age">
+                                            <div></div>
+                                            <select class="form-control" name="languageFrench.reading" formControlName="reading">
+                                                <option value="">Select</option>
+                                                <option value="{{ proficiency.key }}" *ngFor="let proficiency of proficiencies">{{ proficiency.label }}</option>
+                                            </select>
+                                            <div></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="form-group field field-string">
+                                        <label><span></span></label>
+                                        <div id="input_root_profile_age">
+                                            <div></div>
+                                            <select class="form-control" name="languageFrench.speaking" formControlName="speaking">
+                                                <option value="">Select</option>
+                                                <option value="{{ proficiency.key }}" *ngFor="let proficiency of proficiencies">{{ proficiency.label }}</option>
+                                            </select>
+                                            <div></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="form-group field field-string">
+                                        <label><span></span></label>
+                                        <div id="input_root_profile_age">
+                                            <div></div>
+                                            <select class="form-control" name="languageFrench.listening" formControlName="listening">
+                                                <option value="">Select</option>
+                                                <option value="{{ proficiency.key }}" *ngFor="let proficiency of proficiencies">{{ proficiency.label }}</option>
+                                            </select>
+                                            <div></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+            <div class="mt-2 mb-4">
+                <fieldset>
+                    <legend>Your Education and Training:</legend>
+                </fieldset>
+                <div class="row">
+                    <div class="col-12">
+                        <label><span>Have you completed high school (secondary school)?*</span></label>
+                    </div>
+                    <div class="col-12">
+                        <div>
+                            <div class="btn-group btn-group-toggle" ngbRadioGroup >
+                                <label ngbButtonLabel class="btn btn-margin-right">
+                                  <input ngbButton type="radio" formControlName="educationHighschoolCompleted" value="true">Yes
+                                </label>
+                                <label ngbButtonLabel class="btn btn-margin-right">
+                                  <input ngbButton type="radio" formControlName="educationHighschoolCompleted" value="false">No
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-2" *ngIf="f.educationHighschoolCompleted.value == 'true'">
+                    <div class="col-12">
+                        <label><span>Have you received any education or training other than high school (secondary school)?</span></label>
+                    </div>
+                    <div class="col-12">
+                        <div>
+                            <div class="btn-group btn-group-toggle" ngbRadioGroup >
+                                <label ngbButtonLabel class="btn btn-margin-right">
+                                  <input ngbButton type="radio" formControlName="educationHasPostSecondaryEducation" value="true">Yes
+                                </label>
+                                <label ngbButtonLabel class="btn btn-margin-right">
+                                  <input ngbButton type="radio" formControlName="educationHasPostSecondaryEducation" value="false">No
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <app-education-detail *ngIf="f.educationHasPostSecondaryEducation.value == 'true'" [formGroup]="generalImmigrationForm"></app-education-detail>
+            </div>
+            <div class="mt-2 mb-4">
+                <fieldset>
+                    <legend>Your Work History</legend>
+                </fieldset>
+                <div class="row mt-2">
+                    <div class="col-12">
+                        <label><span>Have you done any paid work during the last 10 years?*</span></label>
+                    </div>
+                    <div class="col-12">
+                        <div>
+                            <div class="btn-group btn-group-toggle" ngbRadioGroup >
+                                <label ngbButtonLabel class="btn btn-margin-right">
+                                  <input ngbButton type="radio" formControlName="workHasWorkExperience10Yr" value="true">Yes
+                                </label>
+                                <label ngbButtonLabel class="btn btn-margin-right">
+                                  <input ngbButton type="radio" formControlName="workHasWorkExperience10Yr" value="false">No
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <app-work-history-detail *ngIf="f.workHasWorkExperience10Yr.value == 'true'" [formGroup]="generalImmigrationForm"></app-work-history-detail>
+            </div>
+            <div class="mt-2 mb-4">
+                <fieldset>
+                    <legend>Express Entry Profile</legend>
+                </fieldset>
+                <div class="row">
+                    <div class="col-12">
+                        <label><span>Have you already submitted an Express Entry profile to the Government of Canada within the past 12 months</span></label>
+                    </div>
+                    <div class="col-12">
+                        <div>
+                            <div class="btn-group btn-group-toggle" ngbRadioGroup >
+                                <label ngbButtonLabel class="btn btn-margin-right">
+                                  <input ngbButton type="radio" formControlName="expressEntryExistingProfile" value="true">Yes
+                                </label>
+                                <label ngbButtonLabel class="btn btn-margin-right">
+                                  <input ngbButton type="radio" formControlName="expressEntryExistingProfile" value="false">No
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-4" *ngIf="f.expressEntryExistingProfile.value == 'true'">
+                    <div class="col-12">
+                        <label><span>Have you already received an Invitation to Apply for permanent residence from the Government of Canada through the Express Entry system?                         </span></label>
+                    </div>
+                    <div class="col-12">
+                        <div>
+                            <div class="btn-group btn-group-toggle" ngbRadioGroup >
+                                <label ngbButtonLabel class="btn btn-margin-right">
+                                  <input ngbButton type="radio" formControlName="expressEntryInvitationReceived" value="true">Yes
+                                </label>
+                                <label ngbButtonLabel class="btn btn-margin-right">
+                                  <input ngbButton type="radio" formControlName="expressEntryInvitationReceived" value="false">No
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-2 mb-4">
+                <fieldset>
+                    <legend>Canadian Job Offer</legend>
+                </fieldset>
+                <div class="row">
+                    <div class="col-12">
+                        <label><span>Do you have a written job offer from a Canadian employer?</span></label>
+                    </div>
+                    <div class="col-12">
+                        <div>
+                            <div class="btn-group btn-group-toggle" ngbRadioGroup >
+                                <label ngbButtonLabel class="btn btn-margin-right">
+                                  <input ngbButton type="radio" formControlName="canadianJobOfferHasOffer" value="true">Yes
+                                </label>
+                                <label ngbButtonLabel class="btn btn-margin-right">
+                                  <input ngbButton type="radio" formControlName="canadianJobOfferHasOffer" value="false">No
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-4" *ngIf="f.canadianJobOfferHasOffer.value == 'true'">
+                    <app-canadian-job [formGroup]="generalImmigrationForm"></app-canadian-job>
+                </div>
+            </div>
+            <div class="mt-2 mb-4">
+                <fieldset>
+                    <legend>Family or Friends in Canada</legend>
+                </fieldset>
+                <div class="row">
+                    <div class="col-12">
+                        <label><span>Do you have a close friend living in the province of Manitoba who is 18 years or older?</span></label>
+                    </div>
+                    <div class="col-12">
+                        <div>
+                            <div class="btn-group btn-group-toggle" ngbRadioGroup >
+                                <label ngbButtonLabel class="btn btn-margin-right">
+                                  <input ngbButton type="radio" formControlName="canadialRelativesHasFriendMb" value="true">Yes
+                                </label>
+                                <label ngbButtonLabel class="btn btn-margin-right">
+                                  <input ngbButton type="radio" formControlName="canadialRelativesHasFriendMb" value="false">No
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 mt-2">
+                        <label><span>Do you have any family members or relatives living in Canada and who are 18 years or older?</span></label>
+                    </div>
+                    <div class="col-12">
+                        <div>
+                            <div class="btn-group btn-group-toggle" ngbRadioGroup >
+                                <label ngbButtonLabel class="btn btn-margin-right">
+                                  <input ngbButton type="radio" formControlName="canadialRelativesHasRelatives" value="true">Yes
+                                </label>
+                                <label ngbButtonLabel class="btn btn-margin-right">
+                                  <input ngbButton type="radio" formControlName="canadialRelativesHasRelatives" value="false">No
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" *ngIf="f.canadialRelativesHasRelatives.value == 'true'">
+                    <app-canadian-relative [formGroup]="generalImmigrationForm"></app-canadian-relative>
+                </div>
+            </div>
+            <div class="mt-2 mb-4">
+                <fieldset>
+                    <legend>Your Personal Net Worth</legend>
+                </fieldset>
+                <div class="row">
+                    <div class="col-12"><span>This question is optional. Net worth is considered for some immigration programs.</span></div>
+                    <div class="col-sm-4">
+                        <div class="form-group field field-string">
+                            <label><span>Currency</span></label>
+                            <div id="input_root_profile_age">
+                                <div></div>
+                                <select class="form-control" name="currency" formControlName="currency" >
+                                    <option value="{{ currency.key }}" *ngFor="let currency of currencies">{{ currency.label }}</option>
+                                </select>
+                                <div></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group field field-string">
+                            <label><span>Amount</span></label>
+                            <div id="input_root_profile_age">
+                                <div></div>
+                                <select class="form-control" name="amount" formControlName="amount">
+                                    <option value="">Select</option>
+                                    <option value="9999">less than 10,000</option>
+                                    <option value="10000">between 10,000 and 25,000</option>
+                                    <option value="25000">between 25,000 and 100,000</option>
+                                    <option value="100000">between 100,000 and 500,000</option>
+                                    <option value="500000">between 500,000 and 1,000,000</option>
+                                    <option value="1000000">between 1,000,000 and 2,000,000</option>
+                                    <option value="2000000">more than 2,000,000</option>
+                                </select>
+                                <div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-2 mb-4">
+                <fieldset>
+                    <legend>Enter Your Contact Information</legend>
+                </fieldset>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group field field-string">
+                            <label><span>First Name*</span></label>
+                            <div>
+                                <input class="form-control" name="applicantFirstName" formControlName="applicantFirstName" placeholder="Enter your first name"  
+                                [ngClass]="{ 'border-danger': f.applicantFirstName.touched && f.applicantFirstName.invalid }">
+                            </div>
+                            <div *ngIf="f.applicantFirstName.errors">
+                                <span *ngIf="f.applicantFirstName.touched && f.applicantFirstName.errors.required" class="text-danger">Required</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group field field-string">
+                            <label><span>Last Name*</span></label>
+                            <div>
+                                <input class="form-control" name="applicantLastName" formControlName="applicantLastName" placeholder="Enter your last name" 
+                                [ngClass]="{ 'border-danger': f.applicantLastName.touched && f.applicantLastName.invalid }">
+                            </div>
+                            <div *ngIf="f.applicantLastName.errors">
+                                <span *ngIf="f.applicantLastName.touched && f.applicantLastName.errors.required" class="text-danger">Required</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group field field-string">
+                            <label><span>Email*</span></label>
+                            <div>
+                                <input class="form-control" name="applicantEmail" formControlName="applicantEmail" placeholder="Enter your email address" 
+                                [ngClass]="{ 'border-danger': f.applicantEmail.touched && f.applicantEmail.invalid }">
+                            </div>
+                            <div *ngIf="f.applicantEmail.errors">
+                                <span *ngIf="f.applicantEmail.touched && f.applicantEmail.errors.required" class="text-danger">Required</span>
+                                <span *ngIf="f.applicantEmail.touched && f.applicantEmail.errors.email" class="text-danger">Invalid email address</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group field field-string">
+                            <label><span>Telephone/Mobile</span></label>
+                            <div>
+                                <input class="form-control" name="applicantTelephone" formControlName="applicantTelephone" placeholder="Enter your phone number, including country code and city/area code" value="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-2 mb-4">
+                <fieldset>
+                    <legend>Questions and Comments</legend>
+                </fieldset>
+                <div class="row">
+                    <div class="col-12">
+                        <label><span>You may provide additional information that you think would be relevant to your immigration assessment. Would you like to add information at this time?</span></label>
+                    </div>
+                    <div class="col-12">
+                        <div>
+                            <div class="btn-group btn-group-toggle" ngbRadioGroup >
+                                <label ngbButtonLabel class="btn btn-margin-right">
+                                  <input ngbButton type="radio" formControlName="is_comments" value="true">Yes
+                                </label>
+                                <label ngbButtonLabel class="btn btn-margin-right">
+                                  <input ngbButton type="radio" formControlName="is_comments" value="false">No
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12" *ngIf="f.is_comments.value == 'true'">
+                        <div class="form-group field field-string">
+                            <label><span>Additional Comments:</span></label>
+                            <div>
+                                <textarea class="form-control" name="additionalComments" formControlName="additionalComments"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="mt-2 mb-4">
+				<fieldset>
+					<legend>Immigration Newsletter</legend>
+				</fieldset>
+				<div class="row">
+					<div class="col-12">
+						<label><span>Yes, please send me the free Canadian Immigration Newsletter by email.</span></label>
+					</div>
+					<div class="col-12">
+						<div>
+                            <div class="btn-group btn-group-toggle" ngbRadioGroup >
+                                <label ngbButtonLabel class="btn btn-margin-right">
+                                  <input ngbButton type="radio" formControlName="newsLetterImmigrationNewsletter" value="true">Yes
+                                </label>
+                                <label ngbButtonLabel class="btn btn-margin-right">
+                                  <input ngbButton type="radio" formControlName="newsLetterImmigrationNewsletter" value="false">No
+                                </label>
+                            </div>
+                        </div>
+					</div>
+					<div class="col-12">
+						<label><span>Yes, I would like to receive timely immigration information and special offers from CanadaVisa.com and trusted partners.</span></label>
+					</div>
+					<div class="col-12">
+						<div>
+                            <div class="btn-group btn-group-toggle" ngbRadioGroup >
+                                <label ngbButtonLabel class="btn btn-margin-right">
+                                  <input ngbButton type="radio" formControlName="newsLetterOffers" value="true">Yes
+                                </label>
+                                <label ngbButtonLabel class="btn btn-margin-right">
+                                  <input ngbButton type="radio" formControlName="newsLetterOffers" value="false">No
+                                </label>
+                            </div>
+                        </div>
+					</div>
+				</div>
+			</div> -->
+        </fieldset>
+        <div class="mb-5">
+            <hr style="margin-top: 5px; margin-bottom: 10px;">
+            <button type="submit" class="btn btn-primary btn-lg json-form-submit" [disabled]="generalImmigrationForm.invalid">Submit form</button>
+        </div>
+    </form>
+</div>

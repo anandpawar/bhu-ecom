@@ -1,0 +1,57 @@
+<div class="container" *ngIf="isStartClick">
+    <div class="row mt-2">
+        <div class="col-md-12 mt-5">
+            <h2>Chat</h2>
+            <div class="well my-drop-zone text-center mt-5">
+                <div class="text-center mt-4">
+                    <button type="button" (click)="startChat(); isStartClick = false;" class="btn btn-success btn-lg">
+                        <span class="glyphicon glyphicon-upload"></span> Start Chat
+                    </button>
+                </div>
+                <div id='output'>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="!isStartClick">
+    <div class="messaging">
+        <div class="inbox_msg">
+            <div class="mesgs">
+                <div class="msg_history" id="chatHistory">
+                    <button (click)="addOldChat()" *ngIf="oldMessages" class="text-center btn btn-sm btn-primary">View Old Chat</button>
+                    <div *ngFor="let message of messages; let i = index;" >
+                        <div *ngIf="message.type && ( message.type == 'open' || message.type == 'close' )" class="text-center">
+                            <p><b>{{ message.text }}</b></p>
+                        </div>
+                        <div *ngIf="( message.type != 'open' && message.type != 'close' ) && message.senderId == currentUserId" class="incoming_msg">
+                            <div class="incoming_msg_img"> 
+                                <img src="../../../../../assets/images/logo-with-text.PNG" alt="Admin"> 
+                            </div>
+                            <div class="received_msg">
+                                <div class="received_withd_msg">
+                                    <p [innerHTML]="isSystemMessage(message.text)"></p>
+                                    <span class="time_date"> {{ message.created | date: 'h:mm a, MMMM d' }} &nbsp;&nbsp; <i (click)="deleteMessage(message.id, i)" style="cursor: pointer;" class="fa fa-trash"></i> </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div *ngIf="( message.type != 'open' && message.type != 'close' ) && message.senderId != currentUserId" class="outgoing_msg">
+                            <div class="sent_msg">
+                                <p [innerHTML]="isSystemMessage(message.text)"></p>
+                                <span class="time_date"> {{ message.created | date: 'h:mm a, MMMM d' }} </span> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="type_msg" *ngIf="!isStartClick">
+    <div class="input_msg_write">
+      <input [(ngModel)]="chatBox" [ngModelOptions]="{standalone: true}" autocomplete="off" type="text" class="write_msg" placeholder="      Type a message and click send to send it" />
+      <button class="msg_send_btn" (click)="sendMsg()" type="button"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+    </div>
+</div>

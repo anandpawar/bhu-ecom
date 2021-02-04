@@ -1,0 +1,28 @@
+<div class="row">
+    <div class="sa-immigration-form-original col-md-8">
+        <div class="sa-intro">Did you know that there are more than 60 different Canadian immigration programs?</div>
+        <div class="sa-sub-intro">Our unique assessment system evaluates your eligibility.</div>
+        
+        <div class="sa-general-immigration no-border mt-4">
+            <label for="general-immigration" style="cursor: pointer;">
+                <div class="row sa-card-border">
+                    <div class="col-xs-11 no-padding"><span><h1 class="sa-general-into">{{ selectedFormType.intro }}</h1></span><span class="sa-general-into-sub">{{ selectedFormType.subIntro }}</span></div>
+                    <div class="col-xs-1 no-padding text-right hidden-xs"><i data-toggle="collapse" data-target="" class="fa fa-question-circle"></i></div>
+                </div>
+            </label>
+        </div>
+
+        <div class="sa-other-form mt-4">
+            <h3 class="sa-other-into">Other Immigration Assessment Forms</h3>
+            <div class="sa-other-form-immigration mt-2" *ngFor="let type of otherFormType" (click)="updateSelection(type)">
+                <label for="general-immigration" style="cursor: pointer;">
+                    <div class="row sa-card-border">
+                        <div class="col-xs-11 no-padding"><b>{{ type.intro }}</b>
+                            <br><span class="sa-other-form-into-sub">{{ type.subIntro }}</span></div>
+                        <div class="col-xs-1 no-padding text-right hidden-xs"><i data-toggle="collapse" data-target="" class="fa fa-question-circle"></i></div>
+                    </div>
+                </label>
+            </div>
+        </div>
+    </div>
+</div>

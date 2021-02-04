@@ -1,0 +1,96 @@
+<div>
+	<div class="content">
+		<div class="container pt-5 pb-5" style="margin-top: 100px;">
+			<div class="row">
+				<div class="col-xl-5 col-lg-5 col-md-7 col-sm-12 col-12">
+					<div class="contact-form-head">
+						<h2 class="mb0">Leave a Message Here</h2>
+						<p>We will connect you a consultant within 48 hours.</p>
+                    </div>
+                   
+
+					<div class="contact-form mt30">
+						<form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)">
+							<div class="form-group">
+								<div class="form-group field field-string">
+									<label><span>First Name*</span></label>
+									<div>
+                                        <input type="text" class="form-control" name="name" placeholder="Enter your first name" #name="ngModel" [(ngModel)]="model.name" required 
+                                        [ngClass]="{ 'border-danger': name.touched && name.invalid }" >
+                                    </div>
+                                    <div *ngIf="name.errors">
+                                        <span *ngIf="name.touched && name.errors.required" class="text-danger">Required</span>
+                                    </div>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="form-group field field-string">
+									<label><span>Telephone/Mobile</span></label>
+									<div>
+										<input type="text" class="form-control" name="phone" placeholder="Enter your phone number, including country code and city/area code" value="" [(ngModel)]="model.phone">
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="form-group field field-string" >
+									<label><span>Email*</span></label>
+									<div>
+                                        <input type="email" class="form-control" name="email" placeholder="Enter your email address" #email="ngModel" [(ngModel)]="model.email" email required
+                                        [ngClass]="{ 'border-danger': email.touched && email.invalid }">
+                                    </div>
+                                    <div *ngIf="email.errors">
+                                        <span *ngIf="email.touched && email.errors.required" class="text-danger">Required</span>
+                                        <span *ngIf="email.touched && email.errors.email" class="text-danger">Invalid email address</span>
+                                    </div>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="form-group field field-string">
+									<label><span>Subject</span></label>
+									<div>
+										<input type="text" class="form-control" name="subject" placeholder="" value="" [(ngModel)]="model.subject">
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="form-group field field-string">
+									<label><span>Message</span></label>
+									<div>
+										<textarea type="text" class="form-control" name="message" [(ngModel)]="model.message"></textarea>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<button type="submit" class="btn btn-primary btn-lg json-form-submit" [disabled]="contactForm.form.invalid">Submit</button>
+							</div>
+						</form>
+					</div>
+				</div>
+				<div class="offset-xl-1 col-xl-6 offset-lg-1 col-lg-5 col-md-5 col-sm-12 col-12">
+					<h2>Quick Contact</h2>
+					<p>We are pleased to speak with you to discuss your qualifications and options under the various immigration programs and answer any questions or concerns you may have.</p>
+					<h4 class="mb0">Phone</h4>
+					<p>+1 224 6558524 </p>
+					<div class="row mb30">
+						<div class="col">
+							<h4 class="mb0">Email</h4>
+							<p>info@amserviceng.com</p>
+						</div>
+					</div>
+					<div class="row mb20">
+						<div class="col mb10">
+							<h4 class="mb0">Send your feedback</h4>
+							<p>support@amserviceng.com</p>
+						</div>
+					</div>
+					<div class="row mb20">
+						<div class="col mb10">
+							<h4 class="mb0">For assessment enquiries contact</h4>
+							<p>assessment@amserviceng.com</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

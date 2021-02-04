@@ -1,0 +1,173 @@
+<div>
+    <section class="sa-landing-banner-carousel">
+        <ngb-carousel #carousel >
+            <ng-template ngbSlide *ngFor="let img of images; index as i">
+                <div class="sa-bannner">
+                    <img [src]="img.src" width="100%" alt="My image {{i + 1}} description">
+                </div>
+                <div class="carousel-caption">
+                    <h2 class="align_caption_text">
+                        <span>{{ img.captionPlace }}</span>
+                    </h2>
+                </div>
+            </ng-template>
+        </ngb-carousel>
+    </section>
+    <section class="sa-landing-forum pt-5 pb-5">
+        <div class="container">
+            <div class="row m-auto">
+                <div class="col-md-12 text-center mt-5">
+                    <h1 class="">About Active Migration Services</h1>
+                    <p class="mt-2" style="font-size: 20px;">Active Migration Services was created to provide unique immigration services to our clients. AMS provides advice on matters pertaining to immigrating to Canada. AMS strives to provide the very best to our customers by providing accurate, on-time, professional advice gained from a wealth of experience in the Canadian Immigration Field. So, if you are thinking about coming to Canada and have questions about how to begin the process, you are on the right platform.</p>
+                    <p class="text-default">Call: +1 224 655 8524</p>
+                </div>
+                <div class="col-md-3 m-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="text-center sa-express-title mt-4"><a [routerLink] = "'/express-provincial'" class="no-link-style">Express Entry and Provincial Nomination</a></h3>
+                            <p class="sa-express-subtitle mt-4 text-center"> <a [routerLink] = "'/express-provincial'" class="no-link-style">Skilled immigrants can use the Express Entry System to apply for permanent residence under one of four economic immigration programs.</a></p>
+                            <div style="margin-top: 2.5rem;">
+                                <a [routerLink] = "'/free-assessment'" class="btn btn-primary btn-block sa-btn-primary">Free Assessment</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 m-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="text-center sa-express-title mt-4"><a [routerLink] = "'/work-in-canada'" class="no-link-style">Employment Immigration</a></h3>
+                            <p class="sa-express-subtitle mt-4 text-center"><a [routerLink] = "'/work-in-canada'" class="no-link-style">Apply or extend a work permit, learn about International Experience Canada and being a caregiver, get your credentials recognized, and hire foreign workers.</a></p>
+                            <div style="margin-top: 3rem;">
+                                <a [routerLink] = "'/business-assessment'" class="btn btn-primary btn-block sa-btn-primary">Free Assessment</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 m-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="text-center sa-express-title mt-4"><a [routerLink] = "'/family-sponsorship'" class="no-link-style">Family Sponsorship</a></h3>
+                            <p class="sa-express-subtitle mt-4 text-center"><a [routerLink] = "'/family-sponsorship'" class="no-link-style">Sponsor you relatives, including your spouse, partner, children, parents, grandparents, and others to Immigrate.</a></p>
+                            <div style="margin-top: 6rem;">
+                                <a [routerLink] = "'/study-assessment'" class="btn btn-primary btn-block sa-btn-primary">Free Assessment</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 m-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="text-center sa-express-title mt-4"><a [routerLink] = "'/start-up-visa'" class="no-link-style">Start-up Visa</a></h3>
+                            <p class="sa-express-subtitle mt-4 text-center"><a [routerLink] = "'/start-up-visa'" class="no-link-style">Immigrate by starting a business and creating the job opportunities.</a></p>
+                            <div style="margin-top: 6rem;">
+                                <a [routerLink] = "'/business-assessment'" class="btn btn-primary btn-block sa-btn-primary">Free Assessment</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 m-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="text-center sa-express-title mt-4">Self-employed</h3>
+                            <p class="sa-express-subtitle mt-4 text-center">Immigrate as a self-employed person in cultural or athietic activities.</p>
+                            <div style="margin-top: 6rem;">
+                                <a [routerLink] = "'/business-assessment'" class="btn btn-primary btn-block sa-btn-primary">Free Assessment</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 m-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="text-center sa-express-title mt-4"><a [routerLink] = "'/study-in-canada'" class="no-link-style">Study</a></h3>
+                            <p class="sa-express-subtitle mt-4 text-center"><a [routerLink] = "'/study-in-canada'" class="no-link-style">Apply for or extend a study permit or student work permit.</a></p>
+                            <div style="margin-top: 6rem;">
+                                <a [routerLink] = "'/study-assessment'" class="btn btn-primary btn-block sa-btn-primary">Free Assessment</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 m-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="text-center sa-express-title mt-4"><a [routerLink] = "'/caregivers'" class="no-link-style">Caregivers</a></h3>
+                            <p class="sa-express-subtitle mt-4 text-center"><a [routerLink] = "'/caregivers'" class="no-link-style">Immigrate by providing care for children, the elderly or those with medical needs, or work as a live-in caregivers.</a></p>
+                            <div style="margin-top: 6rem;">
+                                <a [routerLink] = "'/study-assessment'" class="btn btn-primary btn-block sa-btn-primary">Free Assessment</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 m-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="text-center sa-express-title mt-4"><a [routerLink] = "'/visit-canada'" class="no-link-style">Visitor</a></h3>
+                            <p class="sa-express-subtitle mt-4 text-center"><a [routerLink] = "'/visit-canada'" class="no-link-style">Find out if you need a visa to visit, do business or transit through Canada, and how to extend your stay as a visitor.</a></p>
+                            <div style="margin-top: 6rem;">
+                                <a [routerLink] = "'/study-assessment'" class="btn btn-primary btn-block sa-btn-primary">Free Assessment</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="sa-tips">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 nopadding">
+                    <img class="sa-tips-img" src="https://positivelysuccessfulmagazine.com/wp-content/uploads/2009/08/relationship-success-management-8042110.jpg">
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 nopadding sa-tips-text-container">
+                    <div class="sa-tips-text-container pinside80">
+                        <h2 class="text-white">AMS, The Most Reliable Immigration and Visa Consultants</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="sa-landing-tip-and-news pt-5 pb-5 mb-5">
+        <div class="container">
+            <div class="row m-auto">
+                <div class="col-md-12 text-center mt-5">
+                    <h1 class="">Active Migration Services, The Most Reliable Visa Consultants</h1>
+                    <p class="mt-2" style="font-size: 20px;">A results-oriented firm that professionally represents its clients' immigration matters with integrity and efficiency to the Canadian government both within Canada and around the world.</p>
+                </div>
+                <div class="row m-auto">
+                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-3 mt-5">
+                        <div class="country-block text-center">
+                            <div class="country-block-img mb30">
+                                <img src="https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/vprojectold1-ning-367_2.jpg?w=800&amp;dpr=1&amp;fit=default&amp;crop=default&amp;auto=format&amp;fm=pjpg&amp;q=75&amp;vib=3&amp;con=3&amp;usm=15&amp;bg=F4F4F3&amp;ixlib=js-2.2.1&amp;s=10bc07246dfb958fd9596d282e1b4dce" alt="" class="img-fluid flag-medium">
+                            </div>
+                            <h3 class="country-name">Canada</h3>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-3 mt-5">
+                        <div class="country-block text-center">
+                            <div class="country-block-img mb30">
+                                <img src="https://cdn.countryflags.com/thumbs/nigeria/flag-button-round-250.png" alt="" class="img-fluid flag-medium">
+                            </div>
+                            <h3 class="country-name">Nigeria</h3>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-3 mt-5">
+                        <div class="country-block text-center">
+                            <div class="country-block-img mb30">
+                                <img src="https://cdn.clipart.email/8e90da91aa7360d4f739c4b07e557ed4_india-flag-icon-country-flags_250-250.png" alt="" class="img-fluid flag-medium">
+                            </div>
+                            <h3 class="country-name">India</h3>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-3 mt-5">
+                        <div class="country-block text-center">
+                            <div class="country-block-img mb30">
+                                <img src="https://i7.pngguru.com/preview/885/393/201/blue-circle-flag-area-australia.jpg" alt="" class="img-fluid flag-medium">
+                            </div>
+                            <h3 class="country-name">Australia</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

@@ -1,0 +1,117 @@
+<form  [formGroup]="generalImmigrationForm">
+    <div class="col-md-12" >
+        <fieldset>
+            <div></div>
+            <p class="inline-block instruction">Please list all your and/or your spouse/common-law partner's relatives in Canada
+            </p>
+            <div formArrayName="canadialRelativesHasRelativesInfo" *ngFor="let item of allForms.controls; let i = index;">
+                <div class="array-item" [formGroupName]="i">
+                    <div class="col-xs-9">
+                        <div class="relative-detail">
+                            <fieldset>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label><span>Relationship</span>
+                                            </label>
+                                            <div>
+                                                <select class="form-control" formControlName="relationship">
+                                                    <option value="">Select relationship</option>
+                                                    <option value="spouse">Spouse or Common-Law Partner</option>
+                                                    <option value="parent">Mother or Father</option>
+                                                    <option value="child">Daughter or Son</option>
+                                                    <option value="grand_parent">Grandmother or Grandfather</option>
+                                                    <option value="grand_child">Granddaugther or Grandson</option>
+                                                    <option value="sibling">Sister or Brother</option>
+                                                    <option value="niece">Niece or Nephew (child of sister/brother)</option>
+                                                    <option value="aunt">Aunt or Uncle</option>
+                                                    <option value="cousin">Cousin (child of aunt/uncle)</option>
+                                                    <option value="distant">Distant Relative</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label><span>Residency Status</span>
+                                            </label>
+                                            <div>
+                                                <select class="form-control" formControlName="canadianStatus">
+                                                    <option value="">Select residency status</option>
+                                                    <option value="Citizen">Citizen</option>
+                                                    <option value="Permanent Resident">Permanent Resident</option>
+                                                    <option value="Work Permit">Work Permit</option>
+                                                    <option value="Study Permit">Study Permit</option>
+                                                    <option value="Other">Other</option>
+                                                </select>
+                                                <div></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label><span>Living in</span>
+                                            </label>
+                                            <div>
+                                                <select class="form-control" formControlName="province">
+                                                    <option value="">Select Province/Territory</option>
+                                                    <option value="not sure">I am not sure</option>
+                                                    <option value="Alberta">Alberta</option>
+                                                    <option value="British Columbia">British Columbia</option>
+                                                    <option value="Manitoba">Manitoba</option>
+                                                    <option value="New Brunswick">New Brunswick</option>
+                                                    <option value="Newfoundland and Labrador">Newfoundland and Labrador</option>
+                                                    <option value="Northwest Territories">Northwest Territories</option>
+                                                    <option value="Nova Scotia">Nova Scotia</option>
+                                                    <option value="Nunavut">Nunavut</option>
+                                                    <option value="Ontario">Ontario</option>
+                                                    <option value="Prince Edward Island">Prince Edward Island</option>
+                                                    <option value="Quebec">Quebec</option>
+                                                    <option value="Saskatchewan">Saskatchewan</option>
+                                                    <option value="Yukon">Yukon</option>
+                                                </select>
+                                                <div></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label><span>Since</span>
+                                            </label>
+                                            <div>
+                                                <select class="form-control" formControlName="residencyDuration">
+                                                    <option value="">Select length since this person lives in this area</option>
+                                                    <option value="0">Less than 1 year</option>
+                                                    <option value="1">More than 1 year, but less than 2 years</option>
+                                                    <option value="2">2 years or longer</option>
+                                                </select>
+                                                <div></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <div></div>
+                        </div>
+                    </div>
+                    <div class="col-xs-3 remove-item">
+                        <div class="btn-group">
+                            <button type="button" (click)="removeItem(i)" class="btn btn-danger bg-red">
+                                <i class="fa fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <p class="col-4 offset-8 array-item-add text-right">
+                    <button type="button" (click)="addItem()" class="btn btn-info btn-add bg-blue">
+                        <i class="fa fa-plus"></i>
+                        Add Another Education or Training
+                    </button>
+                </p>
+            </div>
+        </fieldset>
+        <div></div>
+    </div>
+</form>

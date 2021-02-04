@@ -1,0 +1,697 @@
+<div class="container emp-profile" *ngIf="contactDetail">
+    <form method="post">
+        <div class="row">
+            <div class="col-md-8">
+                <h4>{{ contactDetail.applicantFirstName + ' ' + contactDetail.applicantLastName | uppercase  }}'s Details</h4>
+            </div>
+            <div class="col-md-4">
+                <h6>( Created on: {{ contactDetail.created | date: 'medium' }} )</h6>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-md-12">
+                <div class="profile-head">
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="experience-tab" data-toggle="tab" href="#experience" role="tab" aria-controls="experience" aria-selected="false">Experience Business</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Sponsor</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="canadial-tab" data-toggle="tab" href="#canadial" role="tab" aria-controls="canadial" aria-selected="false">Canadial Info</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="education-tab" data-toggle="tab" href="#education" role="tab" aria-controls="education" aria-selected="false">Education Info</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="other-tab" data-toggle="tab" href="#other" role="tab" aria-controls="other" aria-selected="false">Other</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8">
+                <div class="tab-content profile-tab" id="myTabContent">
+                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Name</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p><b>{{ contactDetail.applicantFirstName + ' ' + contactDetail.applicantLastName }} </b></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Email</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p><b>{{ contactDetail.applicantEmail }} </b></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Phone</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p><b>{{ contactDetail.applicantTelephone }}</b></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Type</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p><b>{{ contactDetail.type }}</b></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Profile Age</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p><b>{{ contactDetail.profileAge ? contactDetail.profileAge : '' }}</b></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Profile Has Children</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p><b>{{ contactDetail.profileHasChildren ? "Yes" : "No" }}</b></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Profile Marital Status</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p><b>{{ contactDetail.profileMaritalStatus ? contactDetail.profileMaritalStatus : "-" }}</b></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Profile Nationality</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p><b>{{ contactDetail.profileNationality ? contactDetail.profileNationality : "-" }}</b></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Profile Residence Country</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p><b>{{ contactDetail.profileResidenceCountry ? contactDetail.profileResidenceCountry : "-" }}</b></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Personal Age</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p><b>{{ contactDetail.personalAge ? contactDetail.personalAge : "-" }}</b></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Personal Net Worth</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p><b>{{ contactDetail.personalNetWorthNetWorth ? contactDetail.personalNetWorthNetWorth : "-" }}</b></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Nationality</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p><b>{{ contactDetail.nationality ? contactDetail.nationality : "-" }}</b></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>News Letter Immigration News Letter</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p><b>{{ contactDetail.newsLetterImmigrationNewsLetter ? "Yes" : "No" }}</b></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>News Letter Offer</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p><b>{{ contactDetail.newsLetterOffers ? "Yes" : "No" }}</b></p>
+                            </div>
+                        </div>
+                        <div class="row" *ngIf="contactDetail.languageEnglish">
+                            <div class="col-md-6">
+                                <label>English Reading</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p><b>{{ contactDetail.languageEnglish.reading | language }}</b></p>
+                            </div>
+                        </div>
+                        <div class="row" *ngIf="contactDetail.languageEnglish">
+                            <div class="col-md-6">
+                                <label>English Writing</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p><b>{{ contactDetail.languageEnglish.writing | language }}</b></p>
+                            </div>
+                        </div>
+                        <div class="row" *ngIf="contactDetail.languageEnglish">
+                            <div class="col-md-6">
+                                <label>English Speaking</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p><b>{{ contactDetail.languageEnglish.speaking | language }}</b></p>
+                            </div>
+                        </div>
+                        <div class="row" *ngIf="contactDetail.languageEnglish">
+                            <div class="col-md-6">
+                                <label>English Listening</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p><b>{{ contactDetail.languageEnglish.listening | language}}</b></p>
+                            </div>
+                        </div>
+                        <div class="row" *ngIf="contactDetail.languageFrench">
+                            <div class="col-md-6">
+                                <label>French Reading</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p><b>{{ contactDetail.languageFrench.reading | language }}</b></p>
+                            </div>
+                        </div>
+                        <div class="row" *ngIf="contactDetail.languageFrench">
+                            <div class="col-md-6">
+                                <label>French Writing</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p><b>{{ contactDetail.languageFrench.writing | language }}</b></p>
+                            </div>
+                        </div>
+                        <div class="row" *ngIf="contactDetail.languageFrench">
+                            <div class="col-md-6">
+                                <label>French Speaking</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p><b>{{ contactDetail.languageFrench.speaking | language }}</b></p>
+                            </div>
+                        </div>
+                        <div class="row" *ngIf="contactDetail.languageFrench">
+                            <div class="col-md-6">
+                                <label>French Listening</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p><b>{{ contactDetail.languageFrench.listening | language}}</b></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Currency</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p><b>{{ contactDetail.currency ? contactDetail.currency : '-' }}</b></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Amount</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p><b>{{ contactDetail.amount ? contactDetail.amount : '-' }}</b></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Children Greater Than 12</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p><b>{{ contactDetail.childrenGreaterThanTwelve ? contactDetail.childrenGreaterThanTwelve : '-' }}</b></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Children Less Than 12</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p><b>{{ contactDetail.childrenLessThanTwelve ? contactDetail.childrenLessThanTwelve : '-' }}</b></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Country Residence</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p><b>{{ contactDetail.countryResidence ? contactDetail.countryResidence : '-' }}</b></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                        <div class="row mt-4">
+                            <div class="col-md-6">
+                                <label>Sponsorship</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p><b>{{ contactDetail.sponsorship ? "Yes" : "No" }}</b></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Sponsor Age</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p><b>{{ contactDetail.paAsSponsorAge ? contactDetail.paAsSponsorAge : '-' }}</b></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Sponsor Canadian Status</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p><b>{{ contactDetail.paAsSponsorCanadianStatus ? contactDetail.paAsSponsorCanadianStatus : '-' }}</b></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Sponsor Relationship</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p><b>{{ contactDetail.paAsSponsorRelationship ? contactDetail.paAsSponsorRelationship : '-' }}</b></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="experience" role="tabpanel" aria-labelledby="experience-tab">
+                        <div class="row mt-4">
+                            <div class="col-md-6">
+                                <label>Annual Profit After Tax</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p><b>{{ contactDetail.experienceBusinessInfoAnnualProfitAfterTax ? contactDetail.experienceBusinessInfoAnnualProfitAfterTax : "-" }}</b></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Annual Sales</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p><b>{{ contactDetail.experienceBusinessInfoAnnualSales ? contactDetail.experienceBusinessInfoAnnualSales : "-" }}</b></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Company Net Worth</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p><b>{{ contactDetail.experienceBusinessInfoCompanyNetWorth ? contactDetail.experienceBusinessInfoCompanyNetWorth : "-" }}</b></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Currency</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p><b>{{ contactDetail.experienceBusinessInfoCurrency ? contactDetail.experienceBusinessInfoCurrency : "-" }}</b></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Employees</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p><b>{{ contactDetail.experienceBusinessInfoEmployees ? contactDetail.experienceBusinessInfoEmployees : "-" }}</b></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Manage Other Business</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p><b>{{ contactDetail.experienceBusinessInfoManageOtherBusiness ? contactDetail.experienceBusinessInfoManageOtherBusiness : "-" }}</b></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Ownership Percentage</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p><b>{{ contactDetail.experienceBusinessInfoQwnershipPercentage ? contactDetail.experienceBusinessInfoQwnershipPercentage : "-" }}</b></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Existing Profile</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p><b>{{ contactDetail.expressEntryExistingProfile ? "Yes" : "No" }}</b></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Invitation Received</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p><b>{{ contactDetail.expressEntryInvitationReceived ? "Yes" : "No" }}</b></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Has 10 yr Work Experience</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p><b>{{ contactDetail.hasWorkExperience10Yr ? "Yes" : "No" }}</b></p>
+                            </div>
+                        </div>
+                        
+                        <div *ngIf="contactDetail.hasWorkExperience10YrInfo.length">
+                            <div *ngFor=" let data of contactDetail.hasWorkExperience10YrInfo; let i = index;" >
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <p><b>Work Experience {{ i + 1 }}</b></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Duration</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p><b>{{ data.duration | duration }}</b></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Location</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p><b>{{ data.location ? data.location  : "-" }}</b></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Occupation</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p><b>{{ data.occupation ? data.occupation  : "-" }}</b></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Province</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p><b>{{ data.province ? data.province  : "-" }}</b></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Schedule Type</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p><b>{{ data.scheduleType ? data.scheduleType  : "-" }}</b></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>When</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p *ngIf="data.when == '10'">
+                                            <b>Finished More than {{ data.when }} years ago</b>
+                                        </p>
+                                        <p *ngIf="data.when != '10' && data.when != '0'">
+                                            <b>Finished Less than {{ data.when }} years ago</b>
+                                        </p>
+                                        <p *ngIf="data.when == '0'">
+                                            <b>Currently Working</b>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Work Permit</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p><b>{{ data.workPermit ? data.workPermit  : "-" }}</b></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Work Type</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p><b>{{ data.workType ? data.workType  : "-" }}</b></p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        
+                    </div>
+                    <div class="tab-pane fade" id="other" role="tabpanel" aria-labelledby="other-tab">
+                        <div class="row mt-4">
+                            <div class="col-md-6">
+                                <label>Additional Comments</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p><b>{{ contactDetail.additionalComments ? contactDetail.additionalComments : "-" }}</b></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Additional Queries</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p><b>{{ contactDetail.additionalQueries ? contactDetail.additionalQueries : "-" }}</b></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Is Management Experience</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p><b>{{ contactDetail.isManagementExperience ? "Yes" : "No" }}</b></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Is Business Owned</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p><b>{{ contactDetail.isBusinessOwned ? "Yes" : "No" }}</b></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Customer Queries</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p><b>{{ contactDetail.customerQueries ? contactDetail.customerQueries : "-" }}</b></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="canadial" role="tabpanel" aria-labelledby="canadial-tab">
+                        <div class="row mt-4">
+                            <div class="col-md-6">
+                                <label>Canada Relatives Has Friend</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p><b>{{ contactDetail.canadialRelativesHasFriendMb ? "Yes" : "No" }}</b></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Canada Relatives Has Relatives</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p><b>{{ contactDetail.canadialRelativesHasRelatives ? "Yes" : "No" }}</b></p>
+                            </div>
+                        </div>
+                        <div *ngIf="contactDetail.canadialRelativesHasRelativesInfo.length">
+                            <div *ngFor=" let data of contactDetail.canadialRelativesHasRelativesInfo; let i = index;" >
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <p><b>Relative {{ i + 1 }}</b></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Canadial Status</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p><b>{{ data.canadianStatus ? data.canadianStatus : '-' }}</b></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Canadial Status</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p><b>{{ data.canadianStatus ? data.canadianStatus : '-' }}</b></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Province</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p><b>{{ data.province ? data.province : '-' }}</b></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Relationship</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p><b>{{ data.relationship ? data.relationship : '-' }}</b></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Residency Duration</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p><b>{{ data.residencyDuration | duration }}</b></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Has Canadian Job Offer</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p><b>{{ contactDetail.canadianJobOfferHasOffer ? "Yes" : "No" }}</b></p>
+                            </div>
+                        </div>
+                        <div *ngIf="contactDetail.canadianJobOfferHasOfferInfo.length">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Offer Duration</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p><b>{{ contactDetail.canadianJobOfferHasOfferInfo.duration | duration }}</b></p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Has Offer Approved</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p><b>{{ contactDetail.canadianJobOfferHasOfferInfo.hasApproved ? contactDetail.canadianJobOfferHasOfferInfo.hasApproved : '-' }}</b></p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Is Offer Approved</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p><b>{{ contactDetail.canadianJobOfferHasOfferInfo.isApproved ? contactDetail.canadianJobOfferHasOfferInfo.isApproved : '-' }}</b></p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Offer Occupation</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p><b>{{ contactDetail.canadianJobOfferHasOfferInfo.occupation ? contactDetail.canadianJobOfferHasOfferInfo.occupation : '-' }}</b></p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Offer Province</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p><b>{{ contactDetail.canadianJobOfferHasOfferInfo.province ? contactDetail.canadianJobOfferHasOfferInfo.province : '-' }}</b></p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Offer Type</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <p><b>{{ contactDetail.canadianJobOfferHasOfferInfo.scheduleType ? contactDetail.canadianJobOfferHasOfferInfo.scheduleType : '-' }}</b></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="education" role="tabpanel" aria-labelledby="education-tab">
+                        <div class="row mt-4">
+                            <div class="col-md-6">
+                                <label>Has Post Secondary Education</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p><b>{{ contactDetail.educationHasPostSecondaryEducation ? "Yes" : "No" }}</b></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Is High School Completed</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p><b>{{ contactDetail.educationHighschoolCompleted ? "Yes" : "No" }}</b></p>
+                            </div>
+                        </div>
+                        <div *ngIf="contactDetail.educationHasPostSecondaryEducationInfo.length">
+                            <div *ngFor=" let data of contactDetail.educationHasPostSecondaryEducationInfo; let i = index;" >
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <p><b>Post Secondary Education Info {{ i + 1 }}</b></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Program Type</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p><b>{{ data.programType ? data.programType : '-' }}</b></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Is Completed</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p><b>{{ data.isComplete ? data.isComplete : '-' }}</b></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Location</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p><b>{{ data.location ? data.location : '-' }}</b></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Province</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p><b>{{ data.province ? data.province : '-' }}</b></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Duration</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p><b>{{ data.duration | duration }}</b></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+            </div>
+        </div>
+    </form>           
+</div>

@@ -1,0 +1,244 @@
+<div class="sa-immigration-form mt-2">
+	<form [formGroup]="workImmigrationForm" (ngSubmit)="onSubmit()">
+		<fieldset>
+			<div class="mt-2 mb-4">
+				<fieldset>
+					<legend>Enter Your Contact Information</legend>
+				</fieldset>
+				<div class="row">
+                    <div class="col-6">
+                        <div class="form-group field field-string">
+                            <label><span>First Name*</span></label>
+                            <div>
+                                <input class="form-control" name="applicantFirstName" formControlName="applicantFirstName" placeholder="Enter your first name"  
+                                [ngClass]="{ 'border-danger': f.applicantFirstName.touched && f.applicantFirstName.invalid }">
+                            </div>
+                            <div *ngIf="f.applicantFirstName.errors">
+                                <span *ngIf="f.applicantFirstName.touched && f.applicantFirstName.errors.required" class="text-danger">Required</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group field field-string">
+                            <label><span>Last Name*</span></label>
+                            <div>
+                                <input class="form-control" name="applicantLastName" formControlName="applicantLastName" placeholder="Enter your last name" 
+                                [ngClass]="{ 'border-danger': f.applicantLastName.touched && f.applicantLastName.invalid }">
+                            </div>
+                            <div *ngIf="f.applicantLastName.errors">
+                                <span *ngIf="f.applicantLastName.touched && f.applicantLastName.errors.required" class="text-danger">Required</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group field field-string">
+                            <label><span>Email*</span></label>
+                            <div>
+                                <input class="form-control" name="applicantEmail" formControlName="applicantEmail" placeholder="Enter your email address" 
+                                [ngClass]="{ 'border-danger': f.applicantEmail.touched && f.applicantEmail.invalid }">
+                            </div>
+                            <div *ngIf="f.applicantEmail.errors">
+                                <span *ngIf="f.applicantEmail.touched && f.applicantEmail.errors.required" class="text-danger">Required</span>
+                                <span *ngIf="f.applicantEmail.touched && f.applicantEmail.errors.email" class="text-danger">Invalid email address</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group field field-string">
+                            <label><span>Telephone/Mobile</span></label>
+                            <div>
+                                <input class="form-control" name="applicantTelephone" formControlName="applicantTelephone" placeholder="Enter your phone number, including country code and city/area code" value="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+			</div>
+			<div class="mt-2 mb-4">
+				<fieldset>
+					<legend>Personal Profile</legend>
+				</fieldset>
+				<div class="row">
+					<div class="col-6">
+						<div class="form-group field field-string">
+							<label><span>Age</span></label>
+							<div>
+								<input class="form-control" name="personalAge" placeholder="Enter your Age" value="" formControlName="personalAge">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-6">
+						<div class="form-group field field-string">
+							<label><span>Nationality</span></label>
+							<div id="input_root_profile_age">
+								<div></div>
+								<select class="form-control" name="nationality" formControlName="nationality">
+									<option value="">Select the country of Citizenship</option>
+									<option value="{{ country.key }}" *ngFor="let country of countries">{{ country.label }}</option>
+								</select>
+								<div></div>
+							</div>
+						</div>
+					</div>
+					<div class="col-6">
+						<div class="form-group field field-string">
+							<label><span>Country of Residence</span></label>
+							<div id="input_root_profile_age">
+								<div></div>
+								<select class="form-control" name="countryResidence" formControlName="countryResidence">
+									<option value="">Select the country where you are currently located</option>
+									<option value="{{ country.key }}" *ngFor="let country of countries">{{ country.label }}</option>
+								</select>
+								<div></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="mt-2 mb-4">
+				<fieldset>
+					<legend>Your Personal Net Worth</legend>
+				</fieldset>
+				<div class="row">
+					<div class="col-12"><span>Your personal net worth includes all your assets and those of your spouse or common-law partner (if applicable), less any liabilities including mortgages and personal debts.</span></div>
+				</div>
+				<div class="row">
+					<div class="col-sm-6">
+						<div class="form-group field field-string">
+							<label><span>Currency</span></label>
+							<div id="input_root_profile_age">
+								<div></div>
+								<select class="form-control" name="personalNetWorthNetWorth" formControlName="personalNetWorthNetWorth">
+									<option value="{{ currency.key }}" *ngFor="let currency of currencies">{{ currency.label }}</option>
+								</select>
+								<div></div>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<div class="form-group field field-string">
+							<label><span>Amount</span></label>
+							<div id="input_root_profile_age">
+								<div></div>
+								<select class="form-control" name="amount" formControlName="amount">
+									<option value="">Select</option>
+									<option value="9999">less than 10,000</option>
+									<option value="10000">between 10,000 and 25,000</option>
+									<option value="25000">between 25,000 and 100,000</option>
+									<option value="100000">between 100,000 and 500,000</option>
+									<option value="500000">between 500,000 and 1,000,000</option>
+									<option value="1000000">between 1,000,000 and 2,000,000</option>
+									<option value="2000000">more than 2,000,000</option>
+								</select>
+								<div></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="mt-2 mb-4">
+				<fieldset>
+					<legend>Your Management Experience</legend>
+				</fieldset>
+				<div class="row">
+					<div class="col-12"><span>Your management experience may have been gained in a private or public business, international agency, government or government department, professional practice, or farming.</span></div>
+				</div>
+				<div class="row">
+					<div class="col-12"><span class="text-bold">During any two of the last five years:</span></div>
+				</div>
+				<div class="row">
+					<div class="col-12">
+						<label><span>Do you have management experience?</span></label>
+					</div>
+					<div class="col-12">
+						<div>
+                            <div class="btn-group btn-group-toggle" ngbRadioGroup >
+                                <label ngbButtonLabel class="btn btn-margin-right">
+                                  <input ngbButton type="radio" formControlName="isManagementExperience" value="true">Yes
+                                </label>
+                                <label ngbButtonLabel class="btn btn-margin-right">
+                                  <input ngbButton type="radio" formControlName="isManagementExperience" value="false">No
+                                </label>
+                            </div>
+                        </div>
+					</div>
+					<div class="col-12 mt-2">
+						<label><span>Have you owned a business?</span></label>
+					</div>
+					<div class="col-12">
+						<div>
+                            <div class="btn-group btn-group-toggle" ngbRadioGroup >
+                                <label ngbButtonLabel class="btn btn-margin-right">
+                                  <input ngbButton type="radio" formControlName="isBusinessOwned" value="true">Yes
+                                </label>
+                                <label ngbButtonLabel class="btn btn-margin-right">
+                                  <input ngbButton type="radio" formControlName="isBusinessOwned" value="false">No
+                                </label>
+                            </div>
+                        </div>
+					</div>
+					<app-business-detail *ngIf="f.isBusinessOwned.value == 'true'" [formGroup]="workImmigrationForm" class="col-12 mt-4"></app-business-detail>
+				</div>
+			</div>
+			<div class="mt-2 mb-4">
+				<fieldset>
+					<legend>Questions and Comments</legend>
+				</fieldset>
+				<div class="row">
+					<div class="col-12">
+						<div class="form-group field field-string">
+							<label><span>Please use this space to send any specific questions, comments or additional information that may be relevant to your inquiry.</span></label>
+							<div>
+								<textarea class="form-control" name="customerQueries" formControlName="customerQueries"></textarea>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- <div class="mt-2 mb-4">
+				<fieldset>
+					<legend>Immigration Newsletter</legend>
+				</fieldset>
+				<div class="row">
+					<div class="col-12">
+						<label><span>Yes, please send me the free Canadian Immigration Newsletter by email.</span></label>
+					</div>
+					<div class="col-12">
+						<div>
+                            <div class="btn-group btn-group-toggle" ngbRadioGroup >
+                                <label ngbButtonLabel class="btn btn-margin-right">
+                                  <input ngbButton type="radio" formControlName="newsLetterImmigrationNewsletter" value="true">Yes
+                                </label>
+                                <label ngbButtonLabel class="btn btn-margin-right">
+                                  <input ngbButton type="radio" formControlName="newsLetterImmigrationNewsletter" value="false">No
+                                </label>
+                            </div>
+                        </div>
+					</div>
+					<div class="col-12">
+						<label><span>Yes, I would like to receive timely immigration information and special offers from CanadaVisa.com and trusted partners.</span></label>
+					</div>
+					<div class="col-12">
+						<div>
+                            <div class="btn-group btn-group-toggle" ngbRadioGroup >
+                                <label ngbButtonLabel class="btn btn-margin-right">
+                                  <input ngbButton type="radio" formControlName="newsLetterOffers" value="true">Yes
+                                </label>
+                                <label ngbButtonLabel class="btn btn-margin-right">
+                                  <input ngbButton type="radio" formControlName="newsLetterOffers" value="false">No
+                                </label>
+                            </div>
+                        </div>
+					</div>
+				</div>
+			</div> -->
+		</fieldset>
+		<div class="mb-5">
+			<hr style="margin-top: 5px; margin-bottom: 10px;">
+			<button type="submit" class="btn btn-primary btn-md json-form-submit"  [disabled]="workImmigrationForm.invalid" style="width: auto;">
+				<span class="mr-1">Submit Form</span>
+			</button>
+		</div>
+	</form>
+</div>

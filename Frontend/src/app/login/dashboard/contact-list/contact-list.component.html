@@ -1,0 +1,40 @@
+<div class="container-fluid">
+    <h1 class="mt-4">Contact Us List</h1>
+    <div class="card mb-4 mt-4">
+        <div class="card-body">
+            <div class="table-responsive">
+                <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
+                                <thead>
+                                    <tr role="row">
+                                        <th rowspan="1" colspan="1" style="width: 159px;">Product Name</th>
+                                        <th rowspan="1" colspan="1" style="width: 159px;">Product Quantity</th>
+                                        <th rowspan="1" colspan="1" style="width: 159px;">Added At</th>
+                                        <th rowspan="1" colspan="1" style="width: 159px;">Added By</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let contact of contactList | paginate: { itemsPerPage: 10, currentPage: p }">
+                                        <td>{{ contact.email }}</td>
+                                        <td>{{ contact.name }}</td>
+                                        <td>{{ contact.phone }}</td>
+                                        <td><button class="btn btn-primary btn-sm" (click)="setData(contact)">View Detail</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12 justify-center">
+                            <pagination-controls (click)="pageChange()" (pageChange)="p = $event"></pagination-controls>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-contact-detail></app-contact-detail>

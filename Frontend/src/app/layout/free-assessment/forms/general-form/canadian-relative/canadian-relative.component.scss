@@ -1,0 +1,29 @@
+.relative-detail{
+    padding: 1.5em 1.5em 0em 1em;
+    border-radius: 5px;
+    border: 1px solid #b94a48;
+}
+.remove-item{
+    position: absolute;
+    top: 0.3em;
+    right: 0.3em;
+}
+.array-item {
+    position: relative;
+    display: table;
+    margin-bottom: 10px;
+    width: 100%;
+}
+.instruction{
+    margin-top: 2%;
+}
+.bg-red{
+    background-color: #b94a48;
+}
+.bg-blue{
+    background-color: #34b4c5;
+}
+.active{
+    background-color: #0062cc;
+    color: white;
+}

@@ -1,0 +1,234 @@
+<form  [formGroup]="generalImmigrationForm">
+    <div class="col-md-12" >
+        <fieldset>
+            <div></div>
+            <p class="inline-block instruction">Starting with your current (or most recent) job, please list all the paid work you have done during the last 10 years:
+            </p>
+            <div formArrayName="HasWorkExperience10YrInfo" *ngFor="let item of allForms.controls; let i = index;">
+                <div class="array-item" [formGroupName]="i">
+                    <div class="col-xs-9">
+                        <div class="work-detail">
+                            <fieldset>
+                                <div class="row">
+                                    <div class="col-md-6 col-sm-12 no-padding-left">
+                                        <div class="form-group field field-string">
+                                            <label><span>Occupation</span>
+                                            </label>
+                                            <div>
+                                                <input class="form-control" type="text" name="occupation" value="" formControlName="occupation">
+                                                <div></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-6">
+                                        <div class="form-group field field-string">
+                                            <label ><span>Length of Work*</span>
+                                            </label>
+                                            <div>
+                                                <div></div>
+                                                <select class="form-control" formControlName="duration">
+                                                <!-- [ngClass]="{ 'border-danger': f[i]['controls']['duration'].touched && f[i]['controls']['duration'].invalid }"> -->
+                                                    <option value="">Select</option>
+                                                    <option value="0.25">3 months</option>
+                                                    <option value="0.5">6 months</option>
+                                                    <option value="0.75">9 months</option>
+                                                    <option value="1">1 Year</option>
+                                                    <option value="2">2 Years</option>
+                                                    <option value="3">3 Years</option>
+                                                    <option value="4">4 Years</option>
+                                                    <option value="5">5 Years</option>
+                                                    <option value="6">6 Years</option>
+                                                    <option value="7">7 Years</option>
+                                                    <option value="8">8 Years</option>
+                                                    <option value="9">9 Years</option>
+                                                    <option value="10">10 Years or more</option>
+                                                </select>
+                                                <div></div>
+                                                <!-- <div *ngIf="f[i]['controls']['duration'].errors">
+                                                    <span *ngIf="f[i]['controls']['duration'].touched && f[i]['controls']['duration'].errors.required" class="text-danger">Required</span>
+                                                </div> -->
+                                            </div>
+                                        </div>                                        
+                                    </div>
+                                    <div class="col-md-3 col-sm-6">
+                                        <div class="form-group field field-string">
+                                            <label><span>When*</span>
+                                            </label>
+                                            <div>
+                                                <div></div>
+                                                <select class="form-control" formControlName="when">
+                                                <!-- [ngClass]="{ 'border-danger': f[i]['controls']['when'].touched && f[i]['controls']['when'].invalid }" -->
+                                                    <option value="">Select</option>
+                                                    <option value="0">Currently Working</option>
+                                                    <option value="1">Finished less than 1 year ago</option>
+                                                    <option value="2">Finished less than 2 years ago</option>
+                                                    <option value="3">Finished less than 3 years ago</option>
+                                                    <option value="4">Finished less than 4 years ago</option>
+                                                    <option value="5">Finished less than 5 years ago</option>
+                                                    <option value="6">Finished less than 6 years ago</option>
+                                                    <option value="7">Finished less than 7 years ago</option>
+                                                    <option value="8">Finished less than 8 years ago</option>
+                                                    <option value="9">Finished less than 9 years ago</option>
+                                                    <option value="10">Finished MORE than 9 years ago</option>
+                                                </select>
+                                                <div></div>
+                                                <!-- <div *ngIf="f[i]['controls']['when'].errors">
+                                                    <span *ngIf="f[i]['controls']['when'].touched && f[i]['controls']['when'].errors.required" class="text-danger">Required</span>
+                                                </div> -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"><span></span>
+                                        <br>
+                                    </div>
+                                    <div class="col-sm-6 no-padding-left">
+                                        <div class="form-group field field-string">
+                                            <label><span>Work hours</span>
+                                            </label>
+                                            <div>
+                                                <div></div>
+                                                <div class="field-radio-group">
+                                                    <div class="radio ">
+                                                        <label><span><input type="radio" formControlName="scheduleType" value="Full Time"><span class="normal-font">Full Time (At least 30 hours per week)</span></span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="radio ">
+                                                        <label><span><input type="radio" formControlName="scheduleType" value="Part Time"><span class="normal-font">Part Time (At least 15 hours per week)</span></span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="radio ">
+                                                        <label><span><input type="radio" formControlName="scheduleType" value="Less Than Part Time"><span class="normal-font">Less than 15 hours per week</span></span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 no-padding-left">
+                                        <div class="form-group field field-string">
+                                            <label for="root_work_history_0_work_type"><span>Type of Job</span>&nbsp;<i class="fa fa-question-circle large"></i>
+                                                <div class="inline-block">
+                                                    <div class="clearfix"></div>
+                                                    <div class="collapse extendedHelp">
+                                                        <div class="alert alert-info">
+                                                            <button type="button" class="close" data-toggle="collapse" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                                            <div>Self-Employed workers usually work on contract basis, and are not on the payroll of an employer. To be considered self-employed: you must exercise control over how much time you spend on your day-to-day work activities, and you probably provide your own tools and equipment.</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </label>
+                                            <div>
+                                                <div></div>
+                                                <div class="field-radio-group">
+                                                    <div class="radio ">
+                                                        <label><span><input type="radio" formControlName="workType" value="Payroll"><span class="normal-font">On the payroll of any organization (i.e. commercial, governmental or other)</span></span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="radio ">
+                                                        <label><span><input type="radio" formControlName="workType" value="Self-Employed"><span class="normal-font">Self-Employed or working for your own company or business</span></span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"><span></span>
+                                        <br>
+                                    </div>
+                                    <div class="col-sm-6 no-padding-left">
+                                        <div class="form-group field field-string">
+                                            <label><span>Location</span>
+                                            </label>
+                                            <div>
+                                                <div class="btn-group btn-group-toggle" ngbRadioGroup >
+                                                    <label ngbButtonLabel class="btn btn-margin-right">
+                                                    <input ngbButton type="radio" formControlName="location" value="canada">Inside Canada
+                                                    </label>
+                                                    <label ngbButtonLabel class="btn btn-margin-right">
+                                                    <input ngbButton type="radio" formControlName="location" value="other">Outside Canada
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 no-padding-left" *ngIf="f[i]['controls']['location'].value == 'canada'">
+                                        <div class="form-group field field-string">
+                                            <label><span>Province or Territory</span>
+                                            </label>
+                                            <div >
+                                                <div></div>
+                                                <select class="form-control" formControlName="province">
+                                                    <option value="">Select Province/Territory</option>
+                                                    <option value="any province">Any province/territory</option>
+                                                    <option value="Alberta">Alberta</option>
+                                                    <option value="British Columbia">British Columbia</option>
+                                                    <option value="Manitoba">Manitoba</option>
+                                                    <option value="New Brunswick">New Brunswick</option>
+                                                    <option value="Newfoundland and Labrador">Newfoundland and Labrador</option>
+                                                    <option value="Northwest Territories">Northwest Territories</option>
+                                                    <option value="Nova Scotia">Nova Scotia</option>
+                                                    <option value="Nunavut">Nunavut</option>
+                                                    <option value="Ontario">Ontario</option>
+                                                    <option value="Prince Edward Island">Prince Edward Island</option>
+                                                    <option value="Quebec">Quebec</option>
+                                                    <option value="Saskatchewan">Saskatchewan</option>
+                                                    <option value="Yukon">Yukon</option>
+                                                </select>
+                                                <div></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"><span></span>
+                                        <br>
+                                    </div>
+                                    <div class="col-sm-6 no-padding-left" *ngIf="f[i]['controls']['location'].value == 'canada'">
+                                        <div class="form-group field field-string">
+                                            <label><span>What type of Work Permit do you currently hold?</span>
+                                            </label>
+                                            <div>
+                                                <div></div>
+                                                <select class="form-control" formControlName="workPermit">
+                                                    <option value="">Select work permit</option>
+                                                    <option value="LMIA">LMIA (previously LMO) based work permit</option>
+                                                    <option value="NAFTA">NAFTA Work Permit (including Professionals, Traders and Investors)</option>
+                                                    <option value="Treaty">Treaty Permit (other than NAFTA)</option>
+                                                    <option value="Intra-Company">Intra-Company Transfer Work Permit</option>
+                                                    <option value="Post-Graduate">Post-Graduate Work Permit</option>
+                                                    <option value="Co-op">Co-op Work Permit</option>
+                                                    <option value="IEC">International Experience Canada (IEC) / Working Holiday Work Permit</option>
+                                                    <option value="Congugal">Spousal Open Work Permit</option>
+                                                    <option value="Seasonal-Agriculture">Seasonal Agriculture Work Permit</option>
+                                                    <option value="Dont-know">I am not sure / Other</option>
+                                                </select>
+                                                <div></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <div></div>
+                        </div>
+                    </div>
+                    <div class="col-xs-3 remove-item">
+                        <div class="btn-group">
+                            <button type="button" (click)="removeItem(i)" class="btn btn-danger bg-red">
+                                <i class="fa fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <p class="col-4 offset-8 array-item-add text-right">
+                    <button type="button" (click)="addItem()" class="btn btn-info btn-add bg-blue">
+                        <i class="fa fa-plus"></i>
+                        Add Another Job
+                    </button>
+                </p>
+            </div>
+        </fieldset>
+        <div></div>
+    </div>
+</form> 

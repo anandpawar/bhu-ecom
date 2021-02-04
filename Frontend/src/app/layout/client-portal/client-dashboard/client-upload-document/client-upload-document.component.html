@@ -1,0 +1,117 @@
+<div class="container">
+
+    <div class="row mt-4">
+        <div class="col-md-12">
+            <nav>
+                <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+                    <a class="nav-item nav-link active" id="nav-upload-tab" data-toggle="tab" href="#nav-upload" role="tab" aria-controls="nav-upload" aria-selected="true">Upload Documents</a>
+                    <a class="nav-item nav-link" (click)="getDocuments()" id="nav-view-tab" data-toggle="tab" href="#nav-view" role="tab" aria-controls="nav-view" aria-selected="false">View Documents</a>
+                </div>
+            </nav>
+            <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="nav-upload" role="tabpanel" aria-labelledby="nav-upload-tab">
+                    <div class="container">
+                        <div class="row mt-2">
+                            <div class="col-md-12 mt-5">
+                                <h2>Upload and View Documents</h2>
+                                <div ng2FileDrop
+                                    [ngClass]="{'nv-file-over': hasBaseDropZoneOver}"
+                                    (fileOver)="fileOverBase($event)"
+                                    [uploader]="uploader"
+                                    class="well my-drop-zone text-center mt-5">
+                                    <b>Drag your files here</b>
+                                </div>
+                                <div class="row mt-4">
+                                    <div class="col-md-12 text-center">
+                                        <span class="hidden-file">
+                                            <input type="file" #fileInput ng2FileSelect [uploader]="uploader" (onFileSelected)="onFileSelected($event)" />
+                                        </span>
+                                        <div class="btn-group" (click)="fileInput.click()">
+                                            <button type="button" class="btn add-btn">
+                                                Add Documents From Here
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 mt-4 mb-4" style="margin-bottom: 40px">
+                                <h3>Upload queue</h3> 
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th width="30%">Name</th>
+                                        <th>Size</th>
+                                        <th width="30%">Progress</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr *ngFor="let item of uploader.queue">
+                                        <td><strong>{{ item?.file?.name }}</strong></td>
+                                        <td *ngIf="uploader.options.isHTML5" nowrap>{{ item?.file?.size/1024/1024 | number:'.2' }} MB</td>
+                                        <td *ngIf="uploader.options.isHTML5">
+                                            <div class="progress" style="margin-bottom: 0;">
+                                                <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': item.progress + '%' }"></div>
+                                            </div>
+                                        </td>
+                                        <td class="text-center">
+                                            <span *ngIf="item.isSuccess"><i class="fa fa-check-circle"></i></span>
+                                            <span *ngIf="item.isCancel"><i class="fa fa-ban-circle"></i></span>
+                                            <span *ngIf="item.isError"><i class="fa fa-window-close"></i></span>
+                                        </td>
+                                        <td nowrap>
+                                            <button type="button" class="btn btn-success btn-sm"
+                                                    (click)="item.upload()" [disabled]="item.isReady || item.isUploading || item.isSuccess">
+                                                <span class="fa fa-upload"></span> Upload
+                                            </button>
+                                            &nbsp;
+                                            <button type="button" class="btn btn-warning btn-sm"
+                                                    (click)="item.cancel()" [disabled]="!item.isUploading">
+                                                <span class="fa fa-ban-circle"></span> Cancel
+                                            </button>&nbsp;
+                                            <button type="button" class="btn btn-danger btn-sm"
+                                                    (click)="item.remove()">
+                                                <span class="fa fa-trash"></span> Remove
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                   
+                </div>
+                <div class="tab-pane fade" id="nav-view" role="tabpanel" aria-labelledby="nav-view-tab">
+                    <div class="col-md-12 mt-4 mb-4" style="margin-bottom: 40px">
+                        <h3>Uploaded Documents</h3> 
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th width="30%">Name</th>
+                                <th>Type</th>
+                                <th>Uploaded at</th>
+                                <th>Actions</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr *ngFor="let doc of uploadedDocuments; let i = index;">
+                                <td><strong>{{ doc?.name }}</strong></td>
+                                <td>{{ doc?.type }} </td>
+                                <td>{{ doc?.created | date:'medium' }} </td>
+                                <td nowrap>
+                                    <button type="button" class="btn btn-danger btn-sm"
+                                            (click)="removeDocument(doc.id, i)">
+                                        <span class="fa fa-trash"></span> Remove
+                                    </button>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

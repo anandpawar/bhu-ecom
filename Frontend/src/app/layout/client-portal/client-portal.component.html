@@ -1,0 +1,51 @@
+<div>
+	<div class="content">
+		<div class="container pt-5 pb-5" style="margin-top: 100px;">
+			<div class="row">
+				<div class="col-xl-5 col-lg-5 col-md-7 offset-md-4 offset-lg-4 col-sm-12 col-12">
+					<div class="contact-form-head text-center head-style">
+						<h2 class="mb0">Client's Login</h2>
+						<p>Login with your credentials sent by us on your email</p>
+                    </div>
+					<div class="contact-form mt-2 head-style" style="height: 65%;">
+						<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+							<div class="form-group">
+								<div class="form-group field field-string">
+									<label><span>Email</span></label>
+									<div>
+										<input type="email"  formControlName="email" class="form-control" name="email" placeholder="Enter your email address"
+										[ngClass]="{ 'is-invalid': f.email.touched && f.email.errors }" />
+										<div *ngIf="f.email.errors" class="invalid-feedback">
+											<div *ngIf="f.email.touched && f.email.errors.required">Email is required</div>
+											<div *ngIf="f.email.touched && f.email.errors.email">Invalid email address</div>
+										</div>
+                                    </div>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="form-group field field-string">
+									<label><span>Password</span></label>
+									<div>
+										<input type="password"  formControlName="password" class="form-control" name="password" placeholder="Enter your password"
+										[ngClass]="{ 'is-invalid': f.password.touched && f.password.errors }" />
+										<div *ngIf="f.password.errors" class="invalid-feedback">
+											<div *ngIf="f.password.touched && f.password.errors.required">Password is required</div>
+										</div>
+                                    </div>
+								</div>
+							</div>
+							<div class="form-group" style="text-align: end;">
+								<a class="" [routerLink] = "'/forgot-password'">Forgot Password?</a>
+							</div>
+							<div class="form-group text-center">
+								<button type="submit" class="btn btn-primary btn json-form-submit" [disabled]="loginForm.invalid">Login
+									<i class="fa fa-spinner fa-spin" *ngIf="submitted"></i>
+								</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
