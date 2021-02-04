@@ -29,7 +29,7 @@
                             <table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
                                 <thead>
                                     <tr role="row">
-                                        <th rowspan="1" colspan="1" style="width: 25%;">User Name</th>
+                                        <th rowspan="1" colspan="1" style="width: 25%;">User Full Name</th>
                                         <th rowspan="1" colspan="1" style="width: 15%;">User Email</th>
                                         <th rowspan="1" colspan="1" style="width: 10%;">Allow Access</th>
                                         <th rowspan="1" colspan="1" style="width: 30%;">Action</th>
@@ -37,9 +37,9 @@
                                 </thead>
                                 <tbody *ngIf="userList">
                                     <tr *ngFor="let user of userList | paginate: { itemsPerPage: 10, currentPage: p, totalItems: totalSize }; let i = index;">
-                                        <td>{{ user.name }}</td>
+                                        <td>{{ user.firstName + ' ' + user.lastName }}</td>
                                         <td>{{ user.email }}</td>
-                                        <td>{{ user.phone ? user.phone : '-' }}</td>
+                                        <td>{{ user.isVerified }}</td>
                                         <td>
                                             <button class="btn btn-primary btn-sm" (click)="setUId(user.id)">View Detail</button>&nbsp;
                                         </td>

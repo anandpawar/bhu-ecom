@@ -10,15 +10,15 @@ export class Login {
 }
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  selector: 'app-register',
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class RegisterComponent implements OnInit {
 
   loginForm: FormGroup;
   submitted = false;
-  returnUrl: string = 'dashboard';
+  returnUrl: string = 'login';
 
   constructor(
       private formBuilder: FormBuilder,
@@ -34,7 +34,10 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
-      email: ['', [Validators.required]],
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      userName: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required]
     });
   }
@@ -48,10 +51,17 @@ export class LoginComponent implements OnInit {
         return;
     }
     
-    this.authService.login(this.loginForm.value)
+    this.authService.register(this.loginForm.value)
         .subscribe(
             data => {
               this.submitted = false;
+              Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'User registered successfully!',
+                showConfirmButton: false,
+                timer: 3000
+              });
               this.router.navigate([this.returnUrl]);
             },
             error => {

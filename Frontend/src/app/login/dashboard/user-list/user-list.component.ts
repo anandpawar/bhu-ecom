@@ -28,12 +28,18 @@ export class UserListComponent implements OnInit {
   }
 
   getUserList(){
-    this.userService.getUsers(this.p,this.type).subscribe( (res) => {
+    this.userService.getUsers(this.p).subscribe( (res) => {
       if(res['data']){
-        this.userList = res['data']; 
-        this.totalSize = res['total'];
+        this.userList = res['data']['users']['rows']; 
+        this.totalSize = res['data']['users']['count'];
+
+        this.userList = this.userList.filter( (user) => user.isAdmin == false );
       }
-    })
+    },
+    error => {
+      let message = error.error.errorMessage
+      Swal.fire(message, '', 'error')
+    });
   }
 
   setUId(id){

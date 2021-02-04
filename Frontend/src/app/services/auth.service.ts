@@ -12,10 +12,17 @@ export class AuthService {
   constructor(private router:Router,private http: HttpClient) { }
 
   login = (loginData) => {
-    return this.http.post<any>(`${environment.apiURL}admin/auth/login`, loginData)
+    return this.http.post<any>(`${environment.apiURL}pub/login`, loginData)
+        .pipe(map(res => {
+            localStorage.setItem('currentUser', JSON.stringify(res.data.user));
+            localStorage.setItem('tokenData', JSON.stringify(res.data.token));
+            return res.data.user;
+        }));
+  }
+
+  register = (registerData) => {
+    return this.http.post<any>(`${environment.apiURL}pub/register`, registerData)
         .pipe(map(data => {
-            localStorage.setItem('currentUser', JSON.stringify(data.user));
-            localStorage.setItem('tokenData', JSON.stringify(data.token));
             return data.user;
         }));
   }
@@ -47,16 +54,11 @@ export class AuthService {
   getToken = () => {
     let tokenData = localStorage.getItem('tokenData');
     tokenData = JSON.parse(tokenData);
-    return tokenData['token']
+    return tokenData
   }
 
   logout = () => {
     let navigateTo = '/login';
-    let user = localStorage.getItem('currentUser');
-		user = JSON.parse(user);
-		if(user.hasOwnProperty("isAdmin")){  
-			navigateTo = '/client-portal';
-    }
     localStorage.removeItem('currentUser');
     localStorage.removeItem('tokenData'); 
     this.router.navigate([navigateTo]);

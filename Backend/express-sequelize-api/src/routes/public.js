@@ -11,14 +11,12 @@ const router = express.Router();
 //= ===============================
 
 router.post(
-  '/login',
-  validate(userValidator.login),
-  userController.login,
+    '/login',
+    userController.login,
 );
 router.post(
-  '/register',
-  validate(userValidator.register),
-  userController.register,
+    '/register',
+    userController.register,
 );
 
 module.exports = router;

@@ -7,7 +7,7 @@ import { successResponse, errorResponse, uniqueId } from '../../helpers';
 export const allUsers = async(req, res) => {
     try {
         const page = req.params.page || 1;
-        const limit = 2;
+        const limit = 10;
         const users = await User.findAndCountAll({
             order: [
                 ['createdAt', 'DESC'],
@@ -38,6 +38,12 @@ export const register = async(req, res) => {
         if (user) {
             throw new Error('User already exists with same email');
         }
+        const isuserName = await User.findOne({
+            where: { userName },
+        });
+        if (isuserName) {
+            throw new Error('User already exists with same username');
+        }
         const reqPass = crypto
             .createHash('md5')
             .update(password)
@@ -60,18 +66,23 @@ export const register = async(req, res) => {
 
 export const login = async(req, res) => {
     try {
-        const user = await User.findOne({
+        let user = await User.findOne({
             where: { email: req.body.email },
         });
         if (!user) {
-            throw new Error('Incorrect Email Id/Password');
+            user = await User.findOne({
+                where: { userName: req.body.email },
+            });
+            if (!user) {
+                throw new Error('Incorrect Email/Username');
+            }
         }
         const reqPass = crypto
             .createHash('md5')
             .update(req.body.password || '')
             .digest('hex');
         if (reqPass !== user.password) {
-            throw new Error('Incorrect Email Id/Password');
+            throw new Error('Incorrect Password');
         }
         const token = jwt.sign({
                 user: {

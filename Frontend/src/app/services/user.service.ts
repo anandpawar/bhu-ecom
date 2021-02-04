@@ -31,8 +31,8 @@ export class UserService {
         }));
   }
 
-  getUsers = (pageNo, type) => {
-    return this.http.get<any>(`${environment.apiURL}admin/user?page=${pageNo}&pageSize=10&type=${type}&factor=created&order=desc`)
+  getUsers = (pageNo) => {
+    return this.http.get<any>(`${environment.apiURL}api/admin/allUsers?page=${pageNo}`)
         .pipe(map(data => {
             return data;
         }));

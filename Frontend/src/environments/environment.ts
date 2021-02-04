@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiURL: 'https://api.amservicesng.com/api/'
+  apiURL: 'http://localhost:3000/'
 };
 
 /*

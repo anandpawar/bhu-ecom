@@ -15,9 +15,13 @@ export class AdminHomeComponent implements OnInit {
   ngOnInit(): void {
     let user = localStorage.getItem('currentUser');
     user = JSON.parse(user);
-    if(user["name"]){
-      this.userName = user["name"];
+    if(user["firstName"]){
+      this.userName = this.capitalize(user["firstName"]) + ' ' + this.capitalize(user["lastName"]);
     }
+  }
+
+  capitalize(str){
+    return str.charAt(0).toUpperCase() + str.substr(1).toLowerCase()
   }
 
 }
