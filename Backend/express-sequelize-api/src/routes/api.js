@@ -16,5 +16,6 @@ router.post('/changePassword', userController.changePassword);
 router.post('/product', productController.createProduct);
 router.get('/products', productController.allProducts);
 router.patch('/product', productController.updateProduct);
+router.get('/product/:id', productController.getProduct);
 
 module.exports = router;

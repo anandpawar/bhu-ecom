@@ -43,5 +43,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
       multi: true
     }
   ],
+  entryComponents:[
+    ContactDetailComponent
+  ]
 })
 export class DashboardModule { }

@@ -32,7 +32,7 @@ export class ContactListComponent implements OnInit {
     })
   }
 
-  setData(data){
+  editProduct(data){
     this.contactDetail.show(data);
   }
 
@@ -44,4 +44,13 @@ export class ContactListComponent implements OnInit {
     this.getContactList();
   }
 
-}
+  deleteProduct(data){
+    // this.userService.getProducts(this.p).subscribe( (res) => {
+    //   if(res['data']){
+    //     this.contactList = res['data']['products']['rows']; 
+    //     this.totalSize = res['data']['products']['count'];   
+    //   }
+    // })
+  }
+
+} 

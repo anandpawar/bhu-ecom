@@ -59,6 +59,13 @@ export class UserService {
         }));
   }
 
+  getProduct = (id) => {
+    return this.http.get<any>(`${environment.apiURL}api/product/${id}`)
+        .pipe(map(data => {
+            return data;
+        }));
+  }
+
   createProduct = (product) => {
     return this.http.post<any>(`${environment.apiURL}api/product`,product)
         .pipe(map(data => {

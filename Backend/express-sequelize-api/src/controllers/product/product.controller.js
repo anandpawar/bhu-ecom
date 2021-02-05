@@ -75,3 +75,17 @@ export const deleteProduct = async(req, res) => {
         return errorResponse(req, res, error.message);
     }
 };
+
+
+export const getProduct = async(req, res) => {
+    try {
+        const id = req.params.id;
+        const product = await Product.findOne({
+            where: { id: id },
+        });
+
+        return successResponse(req, res, { product });
+    } catch (error) {
+        return errorResponse(req, res, error.message);
+    }
+};
