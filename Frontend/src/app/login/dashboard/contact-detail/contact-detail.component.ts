@@ -24,10 +24,6 @@ export class ContactDetailComponent implements OnInit {
     ) {}
 
   ngOnInit(): void {
-    this.productForm = this.formBuilder.group({
-      name: ['', [Validators.required]],
-      quantity: ['', Validators.required]
-    });
   }
 
   show(data?){
@@ -47,7 +43,12 @@ export class ContactDetailComponent implements OnInit {
 			let message = error.error.errorMessage
 			Swal.fire(message, '', 'error')
 		});
-    }
+    }else{
+		this.productForm = this.formBuilder.group({
+			name: ['', [Validators.required]],
+			quantity: ['', Validators.required]
+		  });
+	}
     this.modalRef = this.modalService.open(this.content, {
       ariaLabelledBy: 'modal-basic-title'
     });
@@ -71,7 +72,8 @@ export class ContactDetailComponent implements OnInit {
                 showConfirmButton: false,
                 timer: 3000
 			});
-			this.modalRef.close();
+			this.userService.setProdListBehaviour('Update')
+			this.close();
 		},
 		error => {
 			this.submitted = false;
@@ -89,7 +91,8 @@ export class ContactDetailComponent implements OnInit {
                 showConfirmButton: false,
                 timer: 3000
 			});
-			this.modalRef.close();
+			this.userService.setProdListBehaviour('Add')
+			this.close();
 		},
 		error => {
 			this.submitted = false;
@@ -102,7 +105,9 @@ export class ContactDetailComponent implements OnInit {
   }
 
   close(){
+	this.action  = 'Add';
+	this.editData = null
 	this.productForm.reset()
-	  this.modalRef.close();
+	this.modalRef.close();
   }
 }

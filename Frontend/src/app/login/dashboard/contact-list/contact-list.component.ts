@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
 import { Router } from '@angular/router';
 import { ContactDetailComponent } from '../contact-detail/contact-detail.component';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-contact-list',
@@ -14,6 +15,7 @@ export class ContactListComponent implements OnInit {
   contactList: any;
   singleContact: any;
   totalSize: number;
+  user;
 
   @ViewChild(ContactDetailComponent) contactDetail: ContactDetailComponent;
 
@@ -21,6 +23,13 @@ export class ContactListComponent implements OnInit {
 
   ngOnInit(): void {
     this.getContactList();
+    let user = localStorage.getItem('currentUser');
+    this.user = JSON.parse(user);
+    this.userService.getProdListObservable().subscribe((data)=>{
+      if(data){
+        this.getContactList();
+      }
+    })  
   }
 
   getContactList(){
@@ -44,13 +53,34 @@ export class ContactListComponent implements OnInit {
     this.getContactList();
   }
 
-  deleteProduct(data){
-    // this.userService.getProducts(this.p).subscribe( (res) => {
-    //   if(res['data']){
-    //     this.contactList = res['data']['products']['rows']; 
-    //     this.totalSize = res['data']['products']['count'];   
-    //   }
-    // })
+  deleteProduct(data, index){
+    Swal.fire({
+      title: 'Are you sure want to remove this Product?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result['value']) {
+        this.userService.deleteProduct(data.id).subscribe( (res) => {
+          if(res['data']){
+            Swal.fire({
+              position: 'center',
+              icon: 'success',
+              title: data.name +' deleted successfully!',
+              showConfirmButton: false,
+              timer: 2000
+            });
+            this.contactList.splice(index, 1);
+          }
+        },
+        error => {
+          let message = error.error.errorMessage
+          Swal.fire(message, '', 'error')
+        });
+      }
+    })
   }
 
 } 

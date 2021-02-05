@@ -12,14 +12,14 @@ export class UserService {
 
   public uuid: string = '';
 
-  chatAndUserId$: BehaviorSubject<any> = new BehaviorSubject(null);
+  prodListBehaviour: BehaviorSubject<any> = new BehaviorSubject(null);
 
-  getChatAndUserId(): Observable<any> {
-    return this.chatAndUserId$.asObservable();
+  getProdListObservable(): Observable<any> {
+    return this.prodListBehaviour.asObservable();
   }
 
-  setChatAndUserId(data) {
-    this.chatAndUserId$.next(data);
+  setProdListBehaviour(data) {
+    this.prodListBehaviour.next(data);
   }
 
   constructor( private http: HttpClient) { }

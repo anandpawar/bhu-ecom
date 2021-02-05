@@ -26,7 +26,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let contact of contactList | paginate: { itemsPerPage: 10, currentPage: p }">
+                                    <tr *ngFor="let contact of contactList | paginate: { itemsPerPage: 10, currentPage: p }; let i = index;">
                                         <td>{{ contact.name }}</td>
                                         <td>{{ contact.quantity }}</td>
                                         <td>{{ contact.createdAt | date : 'MMM d, y, h:mm a' }}</td>
@@ -34,7 +34,7 @@
                                         <td>{{ contact.User.firstName + ' ' + contact.User.lastName }}</td>
                                         <td>
                                             <button class="btn btn-primary btn-sm" (click)="editProduct(contact)">Update</button>&nbsp;
-                                            <button class="btn btn-danger btn-sm" (click)="deleteProduct(contact)">Delete</button>
+                                            <button *ngIf='user.isAdmin' class="btn btn-danger btn-sm" (click)="deleteProduct(contact,i)">Delete</button>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -52,3 +52,4 @@
         </div>
     </div>
 </div>
+<app-contact-detail></app-contact-detail>

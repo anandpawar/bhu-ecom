@@ -2,8 +2,11 @@
     <div class="container-fluid mt-4">
         <h1 class="">Hi, {{ userName }}</h1>
         <div class="card mt-4">
-            <div class="card-body">
+            <div class="card-body" *ngIf='user.isAdmin'>
                 You can click "Users" tab inorder to view all the registered users.
+            </div>
+            <div class="card-body">
+                You can click "Products" tab inorder to view all products.
             </div>
         </div>
     </div>

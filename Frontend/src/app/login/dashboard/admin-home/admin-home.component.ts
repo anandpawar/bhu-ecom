@@ -9,11 +9,12 @@ import { ThrowStmt } from '@angular/compiler';
 export class AdminHomeComponent implements OnInit {
 
   userName: string = '';
-
+  user;
   constructor() { }
 
   ngOnInit(): void {
     let user = localStorage.getItem('currentUser');
+    this.user = JSON.parse(user);
     user = JSON.parse(user);
     if(user["firstName"]){
       this.userName = this.capitalize(user["firstName"]) + ' ' + this.capitalize(user["lastName"]);

@@ -8,11 +8,13 @@ import { Component, OnInit } from '@angular/core';
 export class AdminSidebarComponent implements OnInit {
 
   userName: string = '';
+  user;
 
   constructor() { }
 
   ngOnInit(): void {
     let user = localStorage.getItem('currentUser');
+    this.user = JSON.parse(user);
     user = JSON.parse(user);
     if(user["name"]){
       this.userName = user["name"];
