@@ -13,6 +13,7 @@ export class ContactListComponent implements OnInit {
   p: number = 1;
   contactList: any;
   singleContact: any;
+  totalSize: number;
 
   @ViewChild(ContactDetailComponent) contactDetail: ContactDetailComponent;
 
@@ -23,15 +24,20 @@ export class ContactListComponent implements OnInit {
   }
 
   getContactList(){
-    this.userService.getContacts(this.p).subscribe( (res) => {
+    this.userService.getProducts(this.p).subscribe( (res) => {
       if(res['data']){
-        this.contactList = res['data']; 
+        this.contactList = res['data']['products']['rows']; 
+        this.totalSize = res['data']['products']['count'];   
       }
     })
   }
 
   setData(data){
     this.contactDetail.show(data);
+  }
+
+  addProduct(){
+    this.contactDetail.show();
   }
 
   pageChange(){

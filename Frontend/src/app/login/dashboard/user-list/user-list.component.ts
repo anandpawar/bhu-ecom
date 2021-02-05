@@ -92,4 +92,53 @@ export class UserListComponent implements OnInit {
     })
   }
 
+  deleteUser(user,index){
+    Swal.fire({
+      title: 'Are you sure want to remove this User?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result['value']) {
+        this.userService.deleteUser(user.id).subscribe( (res) => {
+          if(res['data']){
+            Swal.fire({
+              position: 'center',
+              icon: 'success',
+              title: user.firstName + ' ' + user.lastName + ' deleted successfully!',
+              showConfirmButton: false,
+              timer: 2000
+            });
+            this.userList.splice(index, 1);
+          }
+        },
+        error => {
+          let message = error.error.errorMessage
+          Swal.fire(message, '', 'error')
+        });
+      }
+    })
+  }
+
+  checkValue(value,user){
+    user.isVerified = value;
+    this.userService.updateUser(user).subscribe( (res) => {
+      if(res['data']){
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Access update successfully!',
+          showConfirmButton: false,
+          timer: 2000
+        });
+      }
+    },
+    error => {
+      let message = error.error.errorMessage
+      Swal.fire(message, '', 'error')
+    });
+  }
+
 }

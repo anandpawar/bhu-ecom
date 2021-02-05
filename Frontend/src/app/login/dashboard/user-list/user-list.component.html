@@ -4,19 +4,6 @@
         <div class="card-body">
             <div class="table-responsive">
                 <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
-                    <!-- <div class="row">
-						<div class="col-sm-12 col-md-12">
-							<div class="dataTables_length pull-right" id="dataTable_length">
-								<label>
-									<select (click)="onTypeChange($event)" class="custom-select custom-select-md form-control" style="cursor: pointer;">
-										<option value="general">General</option>
-										<option value="study">Study</option>
-										<option value="work">Work</option>
-                                    </select> 
-                                </label>
-							</div>
-						</div>
-					</div> -->
                     <div class="row">
                         <div class="col-sm-12 col-md-12 mb-2 pl-0">
                             <div class="col-md-6" id="dataTable_length">
@@ -39,9 +26,10 @@
                                     <tr *ngFor="let user of userList | paginate: { itemsPerPage: 10, currentPage: p, totalItems: totalSize }; let i = index;">
                                         <td>{{ user.firstName + ' ' + user.lastName }}</td>
                                         <td>{{ user.email }}</td>
-                                        <td>{{ user.isVerified }}</td>
                                         <td>
-                                            <button class="btn btn-primary btn-sm" (click)="setUId(user.id)">View Detail</button>&nbsp;
+                                            <input type="checkbox" style="width: 20%;" (change)="checkValue($event.target.checked, user)" [checked]="user.isVerified == '1' ? true : false"> {{ user.isVerified == '1' ? 'Yes' : 'No' }}</td>
+                                        <td>
+                                            <button class="btn btn-danger btn-sm" (click)="deleteUser(user,i)">Remove</button>&nbsp;
                                         </td>
                                     </tr>
                                 </tbody>

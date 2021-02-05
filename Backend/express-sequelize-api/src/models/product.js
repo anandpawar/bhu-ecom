@@ -8,14 +8,16 @@ module.exports = (sequelize, DataTypes) => {
             quantity: {
                 type: DataTypes.INTEGER,
             },
-            created_by: {
+            createdBy: {
                 type: DataTypes.INTEGER,
                 allowNull: false,
             }
         }
     );
     Product.associate = function(models) {
-        // associations can be defined here
+        models.Product.belongsTo(models.User, {
+            foreignKey: 'createdBy'
+        });
     };
     return Product;
 };

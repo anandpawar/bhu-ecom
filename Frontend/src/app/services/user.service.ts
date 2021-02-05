@@ -32,7 +32,49 @@ export class UserService {
   }
 
   getUsers = (pageNo) => {
-    return this.http.get<any>(`${environment.apiURL}api/admin/allUsers?page=${pageNo}`)
+    return this.http.get<any>(`${environment.apiURL}api/admin/users?page=${pageNo}`)
+        .pipe(map(data => {
+            return data;
+        }));
+  }
+
+  updateUser = (user) => {
+    return this.http.patch<any>(`${environment.apiURL}api/admin/user`,user)
+        .pipe(map(data => {
+            return data;
+        }));
+  }
+
+  deleteUser = (id) => {
+    return this.http.delete<any>(`${environment.apiURL}api/admin/user/${id}`)
+        .pipe(map(data => {
+            return data;
+        }));
+  }
+
+  getProducts = (pageNo) => {
+    return this.http.get<any>(`${environment.apiURL}api/products?page=${pageNo}`)
+        .pipe(map(data => {
+            return data;
+        }));
+  }
+
+  createProduct = (product) => {
+    return this.http.post<any>(`${environment.apiURL}api/product`,product)
+        .pipe(map(data => {
+            return data;
+        }));
+  }
+
+  updateProduct = (product) => {
+    return this.http.patch<any>(`${environment.apiURL}api/product`,product)
+        .pipe(map(data => {
+            return data;
+        }));
+  }
+
+  deleteProduct = (id) => {
+    return this.http.delete<any>(`${environment.apiURL}api/admin/product/${id}`)
         .pipe(map(data => {
             return data;
         }));

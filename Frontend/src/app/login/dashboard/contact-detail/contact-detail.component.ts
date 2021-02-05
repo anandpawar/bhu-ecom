@@ -17,8 +17,10 @@ export class ContactDetailComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  show(data){
-    this.contactDetail = data;
+  show(data?){
+    if(data){
+
+    }
     this.modalService.open(this.content, {
       ariaLabelledBy: 'modal-basic-title'
     });

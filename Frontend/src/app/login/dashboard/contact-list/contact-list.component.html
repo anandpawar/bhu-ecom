@@ -1,10 +1,18 @@
 <div class="container-fluid">
-    <h1 class="mt-4">Contact Us List</h1>
+    <h1 class="mt-4">Product List</h1>
     <div class="card mb-4 mt-4">
         <div class="card-body">
             <div class="table-responsive">
                 <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
                     <div class="row">
+                        <div class="col-sm-12 col-md-12 mb-2 pl-0" style="display: inherit;">
+                            <div class="col-md-6" id="dataTable_length">
+                                <input class="form-control" type="text" #userSearch (keyup)="searchUser($event, userSearch.value)" placeholder="Search Product Name...." />
+                            </div>
+                            <div class="col-md-6">
+                                <button class="btn btn-md btn-primary pull-right" (click)='addProduct()' type="button">Add Product</button>
+                            </div>
+                        </div>
                         <div class="col-sm-12">
                             <table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
                                 <thead>
@@ -12,15 +20,22 @@
                                         <th rowspan="1" colspan="1" style="width: 159px;">Product Name</th>
                                         <th rowspan="1" colspan="1" style="width: 159px;">Product Quantity</th>
                                         <th rowspan="1" colspan="1" style="width: 159px;">Added At</th>
+                                        <th rowspan="1" colspan="1" style="width: 159px;">Last Update At</th>
                                         <th rowspan="1" colspan="1" style="width: 159px;">Added By</th>
+                                        <th rowspan="1" colspan="1" style="width: 159px;">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr *ngFor="let contact of contactList | paginate: { itemsPerPage: 10, currentPage: p }">
-                                        <td>{{ contact.email }}</td>
                                         <td>{{ contact.name }}</td>
-                                        <td>{{ contact.phone }}</td>
-                                        <td><button class="btn btn-primary btn-sm" (click)="setData(contact)">View Detail</button></td>
+                                        <td>{{ contact.quantity }}</td>
+                                        <td>{{ contact.createdAt | date : 'MMM d, y, h:mm a' }}</td>
+                                        <td>{{ contact.updatedAt | date : 'MMM d, y, h:mm a' }}</td>
+                                        <td>{{ contact.User.firstName + ' ' + contact.User.lastName }}</td>
+                                        <td>
+                                            <button class="btn btn-primary btn-sm" (click)="setData(contact)">Update</button>&nbsp;
+                                            <button class="btn btn-danger btn-sm" (click)="setData(contact)">Delete</button>
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table>

@@ -136,3 +136,32 @@ export const changePassword = async(req, res) => {
         return errorResponse(req, res, error.message);
     }
 };
+
+
+export const updateUser = async(req, res) => {
+    try {
+        const userId = req.body.id;
+        const user = await User.findOne({
+            where: { id: userId },
+        });
+
+        await User.update({ isVerified: req.body.isVerified }, { where: { id: user.id } });
+        return successResponse(req, res, {});
+    } catch (error) {
+        return errorResponse(req, res, error.message);
+    }
+};
+
+
+export const deleteUser = async(req, res) => {
+    try {
+        const userId = req.params.id;
+        const user = await User.destroy({
+            where: { id: userId },
+        });
+
+        return successResponse(req, res, {});
+    } catch (error) {
+        return errorResponse(req, res, error.message);
+    }
+};

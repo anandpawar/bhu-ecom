@@ -16,7 +16,7 @@ const routes: Routes = [
     children: [
       { path: '', component: AdminHomeComponent, canActivate: [AdminGuard] },
       { path: 'users', component: UserListComponent, canActivate: [AdminGuard] },
-      { path: 'contacts', component: ContactListComponent, canActivate: [AdminGuard] },
+      { path: 'products', component: ContactListComponent, canActivate: [AdminGuard] },
       { path: 'user-detail', component: UserDetailComponent, canActivate: [AdminGuard] },
       { path: 'contact-detail', component: ContactDetailComponent, canActivate: [AdminGuard] },
     ]
