@@ -31,11 +31,6 @@ export class WebsocketService {
 				}
 			})
 		}
-		this.userService.getChatAndUserId().subscribe(data => {
-			console.log(data)
-			this.adminUserId = data['userId'];
-			this.adminChatId = data["chatId"];
-		});
 	}
 	
 	public startConnection(){
